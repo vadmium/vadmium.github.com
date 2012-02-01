@@ -19,10 +19,16 @@
 * ''Obsoletes/Conflicts'': put a set of packages in the same transaction
 * Packaging tool automatically sets dependencies of binary packages on library packages
 
+=== Arch Linux ===
+
+[[WP:Arch Linux]].
+
+* A package is only designed to work with the other packages that were current when it was published
+* Packages often only have a single version published at a time
+
 === Other ===
 
 * [[wp:Nix package manager|Nix package manager]]
-* [[wp:Arch Linux|Arch Linux]]
 * [[wp:OpenEmbedded|OpenEmbedded]]
 * [[wp:Debian|Debian]]
 * [[wp:Gentoo (operating system)|Gentoo]]
