@@ -1,0 +1,32 @@
+== Survey ==
+
+=== Mandriva ===
+[[WP:Mandriva Linux]]: Libraries policy [//wiki.mandriva.com/en/Libraries_policy //wiki.mandriva.com/en/Libraries policy]
+
+* [[wp:RPM package|RPM]]s
+* Separate libraries, named ⟨main library⟩⟨major⟩, where the main library name begins with ''lib'' (libfoo2, libfoo2-2.3.4)
+** May install various major versions of the same main library simultaneously
+** Some libraries include an API version in their name (library ''libfoo-1.2.so.4'' → package ''libfoo1.2_4'')?? Similarly if the package name ends with some other number.
+** Multiple library packages only when needed (e.g. different ''major'')
+* Source package (foo)
+* Main binary package for binaries and configuration (foo). If it has to start with ''lib'' (conflicting with the library package naming), add clarifier (libfoo-utils, libfoo-tools)
+* ''Devel'' package (libfoo-devel): ''requires'' corresponding library package
+** ''Static'' package (libfoo-static-devel): for statically linked libraries (.a)
+** Libtool (.la) files go in ''devel'' packages if they are used at build time only (mandatory for statically linked libraries, less so otherwise), but in the library package instead if they may be used for runtime plugins.
+** Multiple ''major'' versions maintained: ''devel'' package name of latest version does not include the ''major''
+** Future non-trivial source-incompatible release expected: ''devel'' package name includes the ''major''
+* For 64-bit architecture, when 32-bit was the original: the ''lib'' prefix in library and ''devel'' package names is replaced with ''lib64'' (lib64foo2, lib64foo-devel)
+* ''Obsoletes/Conflicts'': put a set of packages in the same transaction
+* Packaging tool automatically sets dependencies of binary packages on library packages
+
+=== Other ===
+
+* [[wp:Nix package manager|Nix package manager]]
+* [[wp:Arch Linux|Arch Linux]]
+* [[wp:OpenEmbedded|OpenEmbedded]]
+* [[wp:Debian|Debian]]
+* [[wp:Gentoo (operating system)|Gentoo]]
+
+== Issues ==
+
+* [//wiki.mandriva.com/en/Overlinking_issues_in_packaging //wiki.mandriva.com/en/Overlinking issues in packaging]: When buliding a dynamically-linked executable, libraries may be unnecessarily specified, which will add unnecessarily complex dependencies
