@@ -3,25 +3,25 @@
 |-
 |[[WP:Zip (file format)|Zip]] || file || uncompressed
 |-
-|CHM || 4096 B blocks (?)
+|[[WP:HTML Help|HTML Help]] || 64 KiB blocks (?)
 |-
 |[[WP:Rar (file format)|Rar]] || file; solid
 |-
-|Squash FS || blocks (?)
+|[[WP:Squash FS|Squash FS]] || blocks (?)
 |-
 |[[WP:Tar (file format)|Tar]] || data; not metadata
 |-
 |Tar, compressed || none
 |-
-|[[WP:7-zip|7-zip]] (''[[WP:7z|7z]]'') || file; solid; configurable blocks
+|[[WP:7Z|7Z]] ([[WP:Seven zip|Seven-zip]]) || file; solid; configurable blocks
 |-
-|CPIO
+|[[WP:CPIO|CPIO]]
 |-
-|''[[WP:gzip|gzip]]'' || || || concatenation only
+|[[WP:gzip|G-zip]] || || || concatenation only
 |-
-|B Zip 2
+|[[WP:bzip2|B-zip 2]]
 |-
-|XZ
+|[[WP:XZ|XZ]]
 |-
-|''compress''
+|''[[WP:compress|compress]]''
 |}
