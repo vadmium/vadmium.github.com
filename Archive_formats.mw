@@ -23,7 +23,7 @@
 
 == File storage ==
 {| class="wikitable"
-! || Wikipedia || Data || Metadata || Derivation
+! || Wikipedia || Data || Metadata || Derivation || Notes
 |-
 |Zip || [[WP:Zip (file format)|Zip (file format)]] || unfragmented || sequential (?) ||
 |-
@@ -33,7 +33,7 @@
 |-
 |Squash FS || [[WP:Squash FS|Squash FS]] || blocks (?) || ||
 |-
-|Tar || [[WP:Tar (file format)|Tar (file format)]] || unfragmented || sequential
+|Tar || [[WP:Tar (file format)|Tar (file format)]] || unfragmented || precedes each file || || 512 B records
 |-
 |7Z || [[WP:7Z|7Z]], [[WP:Seven zip|Seven zip]] || unfragmented (?) || encryptable
 |-
