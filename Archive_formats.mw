@@ -1,41 +1,41 @@
 == Compression ==
 {| class="wikitable"
-! || Data || Metadata
+! || Wikipedia || Data || Metadata
 |-
-|[[WP:Zip (file format)|Zip]] || file || uncompressed sequential (?)
+|Zip || [[WP:Zip (file format)|Zip (file format)]] || file || uncompressed sequential (?)
 |-
-|[[WP:HTML Help|HTML Help]] || 64 KiB blocks (?) ||
+|HTML Help || [[WP:HTML Help|HTML Help]] || 64 KiB blocks (?) ||
 |-
-|[[WP:Rar (file format)|Rar]] || file; solid ||
+|Rar || [[WP:Rar (file format)|Rar (file format)]] || file; solid ||
 |-
-|[[WP:Squash FS|Squash FS]] || blocks (?) ||
+|Squash FS || [[WP:Squash FS|Squash FS]] || blocks (?) ||
 |-
-|[[WP:7Z|7Z]] ([[WP:Seven zip|Seven-zip]]) || file; solid; configurable blocks
+|7Z || [[WP:7Z|7Z]], [[WP:Seven zip|Seven zip]] || file; solid; configurable blocks
 |-
-|[[WP:gzip|G-zip]] || ||
+|G-zip || ''[[WP:gzip|gzip]]'' || ||
 |-
-|[[WP:bzip2|B-zip 2]] || ||
+|B-zip 2 || ''[[WP:bzip2|bzip2]]'' || ||
 |-
-|[[WP:XZ|XZ]] || ||
+|XZ || [[WP:XZ|XZ]] || ||
 |-
-|''[[WP:compress|compress]]'' || ||
+|''compress'' || ''[[WP:compress|compress]]'' || ||
 |}
 
 == File storage ==
 {| class="wikitable"
-! || Data || Metadata || Derivation
+! || Wikipedia || Data || Metadata || Derivation
 |-
-|[[WP:Zip (file format)|Zip]] || unfragmented || sequential (?) ||
+|Zip || [[WP:Zip (file format)|Zip (file format)]] || unfragmented || sequential (?) ||
 |-
-|[[WP:HTML Help|HTML Help]] || 64 KiB compressed blocks (?) || ordered (?) || 
+|HTML Help || [[WP:HTML Help|HTML Help]] || 64 KiB compressed blocks (?) || ordered (?) || 
 |-
-|[[WP:Rar (file format)|Rar]] || unfragmented || encryptable ||
+|Rar || [[WP:Rar (file format)|Rar (file format)]] || unfragmented || encryptable ||
 |-
-|[[WP:Squash FS|Squash FS]] || blocks (?) || ||
+|Squash FS || [[WP:Squash FS|Squash FS]] || blocks (?) || ||
 |-
-|[[WP:Tar (file format)|Tar]] || unfragmented || sequential
+|Tar || [[WP:Tar (file format)|Tar (file format)]] || unfragmented || sequential
 |-
-|[[WP:7Z|7Z]] ([[WP:Seven zip|Seven-zip]]) || unfragmented (?) || encryptable
+|7Z || [[WP:7Z|7Z]], [[WP:Seven zip|Seven zip]] || unfragmented (?) || encryptable
 |-
-|[[WP:CPIO|CPIO]] || ||
+|CPIO || [[WP:CPIO|CPIO]] || ||
 |}
