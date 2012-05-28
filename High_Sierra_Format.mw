@@ -1,0 +1,67 @@
+== HSF ==
+
+[[WP:High Sierra Format]]
+
+== ISO 9660 ==
+
+[[WP:ISO 9660]]
+
+Ecma-119.pdf: ''Volume and file structure of CDROM for information interchange''
+
+;sector
+:Smallest addressable individual part of CD
+;Data Field
+:User data in a CD sector; e.g. 2048 bytes on a 2352-byte sector
+;Logical Sector
+:Highest power of two bytes that fits a CD sector data field; minimum 2048&nbsp;B, spanning multiple CD sectors. Numbered from zero.
+;System Area
+:16 logical sectors (32&nbsp;KiB) reserved at the start of the volume
+;Data Area
+:Remaining space from logical sector number 16 onwards
+
+;Logical Block
+:512&nbsp;B or higher power of two; at most the “logical sector” size. Numbered from zero.
+;Extent
+:Any continuous series of logical blocks
+;File Section
+:Part of file data recorded in an extent. Recorded in “data area”; there may be more than one file section per file.
+;File Unit
+:Continuous sequence of logical blocks in an extent (extent within an extent). File units have uniform size and spacing for a given file section. Aligned to the start of a logical sector. Any extended attribute record spans entire first file unit.
+:;size
+::Logical blocks
+:
+;Interleave Gap
+:Extra space after each file unit; uniform size for a given file section
+;Extended Attribute Record
+:May be associated with a file section. If recorded, at beginning of its extent. Spans whole of first file unit in interleaved mode.
+:;length
+::Logical blocks
+:
+;Data Space
+:The file units (interleaved mode) or extent (non-interleaved mode) subsequent to any extended attribute record. File data recorded beginning at the start of the data space.
+:;data length
+::bytes; may be less than available
+
+;byte position
+:Numbered from one
+
+;Volume Descriptor
+;File Descriptor
+;Directory Descriptor
+;Path Table
+:All recorded in “data area”
+
+;volume data area:
+:*volume descriptors
+:** root directory
+:** path table
+:*** all directories
+:
+;directory: must be in a single extent
+:* subdirectories
+:* file sections
+:** [extended attribute record]
+
+== UDF ==
+
+[[WP:Universal Disk Format]]
