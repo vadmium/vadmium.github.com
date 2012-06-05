@@ -62,6 +62,38 @@ Ecma-119.pdf: ''Volume and file structure of CDROM for information interchange''
 :* file sections
 :** [extended attribute record]
 
+== Non-sequential recording (NSR) ==
+
+[http://www.ecma-international.org/publications/standards/Ecma-167.htm ECMA-167] ''Volume and file structure for write-once and rewritable media using non-sequential recording for information interchange
+
+;byte position
+:Numbered from zero (different from CDFS)
+;numerical values
+:Recorded in little endian, two’s compliment
+
+;sector
+:Data field of smallest addressable independent part of medium
+:;number
+::Initial 0
+:
+;volume recognition area
+:Sector-aligned, beginning after first 32&nbsp;KiB of sectors in “volume recognition space”, presumably to correspond with CDFS’s Data Area.
+;volume recognition sequence
+:Sequence of Volume Structure Descriptors, recorded from the start of the volume recognition area. Each descriptor is aligned to the start of a sector and padded to the end of its last sector  with zeros. Sequence terminated by invalid descriptor.
+;Volume Structure Descriptor
+:Aligned to the start of a sector and padded to the end of its last sector with zeros
+:{| class="wikitable"
+| 0 || 1 byte || Structure Type
+|-
+| 1 || 5 bytes || Standard Identifier
+|-
+| 6 || 1 byte || Structure Version
+|-
+| 7 || 2041 bytes || Structure Data
+|}
+;CD-ROM Volume Descriptor Set
+:Optional; at start of volume recognition sequence. Considered to (at least) start with a Volume Structure Descriptor. Specified by CDFS.
+
 == UDF ==
 
 [[WP:Universal Disk Format]]
