@@ -95,9 +95,22 @@ Ecma-119.pdf: ''Volume and file structure of CDROM for information interchange''
 ;Beginning Extended Area Descriptor
 :Standard Identifier “BEA01”; Structure Type 0; Structure Version 1; Structure Data zeroed
 ;Terminating Extended Area Descriptor
-:Standard Identifier “TEA01”; Strucutre Type 0; Structure Version 1; Structure Data zeroed
+:Standard Identifier “TEA01”; Structure Type 0; Structure Version 1; Structure Data zeroed
 ;Boot Descriptor
 :Standard Identifier “BOOT2”
+
+;logical sector
+:Volume allocation unit. Group of volume sectors. Must be at least 258 logical sectors per volume (there must be a logical sector beyond number 256).
+:;length, size
+::Equal. Multiple of 512&nbsp;B; able to fit any sector.
+:;number
+::Consecutive, from 0
+:
+;Anchor point
+:May be at logical sectors 256, ''N'' − 256 − 1, ''N'' − 1, and multiples of ⌊(''N'' − 1)/59⌋, except for logical sector 0, where ''N'' is the total number of logical sectors. Must be at least two anchor points. Thus there would be at least 59 anchor points; 59 chosen to avoid the likelihood a single error affecting all anchor points.
+
+;Volume Descriptor Sequence
+:
 
 == UDF ==
 
