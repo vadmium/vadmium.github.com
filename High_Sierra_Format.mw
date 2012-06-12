@@ -106,6 +106,45 @@ Ecma-119.pdf: ''Volume and file structure of CDROM for information interchange''
 :;number
 ::Consecutive, from 0
 :
+;Descriptor tag
+:Sixteen-byte structure recorded at start of some descriptors. Factors common CRC and format version handling. Allows damage or corruption recovery: helps identifying structures and context.
+:;Tag Identifier (byte position 0; 2 bytes)
+::Specifies type of descriptor
+::;0
+:::Descriptor format not specified
+::;1–9, 256–266
+:::Specified by ECMA-167
+::;65&#x202F;280–65&#x202F;535
+:::Implementation specified
+::;Other values
+:::Reserved for future standards
+::
+:;Descriptor Version (position 2; 2 bytes)
+::
+::;2
+:::ECMA-167/2
+::;3
+:::ECMA-167/3
+::
+:;Reserved (position 5; 1 byte)
+::Zero value
+:;Tag Serial Number (position 6; 2 bytes)
+::Identifier for a set of descriptors, or zero. Could be used to identify current descriptors from old descriptors when reusing the space without clearing it.
+:;Descriptor CRC length (position 10; 2 bytes)
+::Number of bytes used for CRC. If zero, the CRC is also zero.
+:;Descriptor CRC (position 8; 2 bytes)
+::CRC of data starting directly after the descriptor tag. [[WP:CRC-16|CRC-16]] using ITU-T [[WP:V.41|V.41]] standard polynomial. Example: 0x70 0x6A 0x77 → 0x3299.
+:;Tag Location (position 12; 4 bytes)
+::Logical sector number of start of descriptor. Consistency check.
+:;Tag Checksum (position 4; 1 byte)
+::Sum of all other tag bytes (0–3, 5–15)
+:
+;Anchor Volume Descriptor Pointer
+:Specifies “an” extent of the Main and Reserve Volume Descriptors
+:;Descriptor Tag (byte position 0; 16 bytes)
+::Tag&nbsp;= 2
+:;.&nbsp;.&nbsp;.
+:
 ;Anchor point
 :May be at logical sectors 256, ''N'' − 256 − 1, ''N'' − 1, and multiples of ⌊(''N'' − 1)/59⌋, except for logical sector 0, where ''N'' is the total number of logical sectors. Must be at least two anchor points. Thus there would be at least 59 anchor points. The number 59 is chosen to avoid the likelihood a single error affecting all anchor points, and to be close to 64.
 
