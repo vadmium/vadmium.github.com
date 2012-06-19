@@ -147,7 +147,7 @@
 ::Logical sector number. Zero if no extent is specified.
 :
 ;Anchor point
-:May be at logical sectors 256, ''n'' − 256, ''n'' − 1, and multiples of ⌊''n''/59⌋ other than logical sector 0, where ''n'' is the last logical sector number, one less than the total number of logical sectors. Thus there would be at least 59 potential anchor points. The number 59 is chosen to be close to 64 and to avoid the likelihood a single error affecting all anchor points. There must be at least two anchor points that record an Anchor Volume Descriptor Pointer.
+:May be at logical sectors 256, ''n'' − 256, ''n'', and multiples of ⌊''n''/59⌋ other than logical sector 0, where ''n'' is the last logical sector number, one less than the total number of logical sectors. Thus there would be at least 59 potential anchor points. The number 59 is chosen to be close to 64 and to avoid the likelihood a single error affecting all anchor points. There must be at least two anchor points that record an Anchor Volume Descriptor Pointer.
 ;Anchor Volume Descriptor Pointer
 :Specifies the first extent of the Main and Reserve Volume Descriptor Sequences
 :;tag (byte position 0; 16 bytes)
