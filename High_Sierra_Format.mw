@@ -146,7 +146,7 @@ Ecma-119.pdf: ''Volume and file structure of CDROM for information interchange''
 :;.&nbsp;.&nbsp;.
 :
 ;Anchor point
-:May be at logical sectors 256, ''N'' − 256 − 1, ''N'' − 1, and multiples of ⌊(''N'' − 1)/59⌋, except for logical sector 0, where ''N'' is the total number of logical sectors. Must be at least two anchor points. Thus there would be at least 59 anchor points. The number 59 is chosen to avoid the likelihood a single error affecting all anchor points, and to be close to 64.
+:May be at logical sectors 256, ''n'' − 256, ''n'' − 1, and multiples of ⌊''n''/59⌋, except for logical sector 0, where ''n'' is the last logical sector number, one less than the total number of logical sectors. Thus there would be at least 59 potential anchor points. The number 59 is chosen to be close to 64 and to avoid the likelihood a single error affecting all anchor points. Must be at least two anchor points where Anchor Volume Descriptor Pointers identify one Volume Descriptor Sequence extent.
 
 ;Volume Descriptor Sequence
 :
