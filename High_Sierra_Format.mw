@@ -106,8 +106,8 @@ Ecma-119.pdf: ''Volume and file structure of CDROM for information interchange''
 :;number
 ::Consecutive, from 0
 :
-;Descriptor tag
-:Sixteen-byte structure recorded at start of some descriptors. Factors common CRC and format version handling. Allows damage or corruption recovery: helps identifying structures and context.
+;tag
+:Descriptor tag. Sixteen-byte structure recorded at start of some descriptors. Factors common CRC and format version handling. Allows damage or corruption recovery: helps identifying structures and context.
 :;Tag Identifier (byte position 0; 2 bytes)
 ::Specifies type of descriptor
 ::;0
@@ -139,16 +139,63 @@ Ecma-119.pdf: ''Volume and file structure of CDROM for information interchange''
 :;Tag Checksum (position 4; 1 byte)
 ::Sum of all other tag bytes (0–3, 5–15)
 :
-;Anchor Volume Descriptor Pointer
-:Specifies “an” extent of the Main and Reserve Volume Descriptors
-:;Descriptor Tag (byte position 0; 16 bytes)
-::Tag&nbsp;= 2
-:;.&nbsp;.&nbsp;.
+;extent_ad
+:Extent Descriptor; 8 bytes
+:;Extent Length (byte position 0; 4 bytes)
+::In bytes. Less than 2<sup>30</sup>; normally multiple of the logical sector size. Zero length if no extent specified.
+:;Extent Location (byte position 4; 4 bytes)
+::Logical sector number. Zero if no extent is specified.
 :
 ;Anchor point
-:May be at logical sectors 256, ''n'' − 256, ''n'' − 1, and multiples of ⌊''n''/59⌋, except for logical sector 0, where ''n'' is the last logical sector number, one less than the total number of logical sectors. Thus there would be at least 59 potential anchor points. The number 59 is chosen to be close to 64 and to avoid the likelihood a single error affecting all anchor points. Must be at least two anchor points where Anchor Volume Descriptor Pointers identify one Volume Descriptor Sequence extent.
-
+:May be at logical sectors 256, ''n'' − 256, ''n'' − 1, and multiples of ⌊''n''/59⌋ other than logical sector 0, where ''n'' is the last logical sector number, one less than the total number of logical sectors. Thus there would be at least 59 potential anchor points. The number 59 is chosen to be close to 64 and to avoid the likelihood a single error affecting all anchor points. There must be at least two anchor points that record an Anchor Volume Descriptor Pointer.
+;Anchor Volume Descriptor Pointer
+:Specifies the first extent of the Main and Reserve Volume Descriptor Sequences
+:;tag (byte position 0; 16 bytes)
+::Tag Identifier 2
+:;Main Volume Descriptor Sequence Extent (position 16; 8 bytes)
+::''Extent_ad''. Extent allocation.
+:;Reserve Volume Descriptor Sequence Extent (position 24; 8 bytes)
+::''Extent_ad''. Extent allocation. Zero length if not specified. Should use separate logical sectors to the Main Volume Descriptor Sequence.
+:;Reserved (position 32; 480 bytes)
+::Zero values
+:
 ;Volume Descriptor Sequence
+:Linked list of extents. Each extent begins with an optional series of volume descriptors, followed by either a Volume Descriptor Pointer, a Terminating Descriptor, or an unrecorded logical sector. There may be trailing logical sectors following this. All Volume Descriptor Sequences specified by Anchor Volume Descriptor Pointers should be equivalent.
+;Primary Volume Descriptor
+:Identifies a volume
+:;tag (byte position 0; 16 bytes)
+::Tag=1
+:;Volume Descriptor Sequence Number (position 16; 4 bytes)
+:;Primary Volume Descriptor Number (position 20; 4 bytes)
+:;Volume Identifier (position 24; 32 bytes)
+::''dstring''
+:;Volume Sequence Number (position 56; 2 bytes)
+:;Maximum Volume Sequence Number (position 58; 2 bytes)
+:;Interchange Level (position 60; 2 bytes)
+:;Maximum Interchange Level (position 62; 2 bytes)
+:;Character Set List (position 64; 4 bytes)
+:;Maximum Character Set List (position 68; 4 bytes)
+:;Volume Set Identifier (position 72; 128 bytes)
+::''dstring''
+:;Descriptor Character Set (position 200; 64 bytes)
+::''charspec''
+:;Explanatory Character Set (position 264; 64 bytes)
+::''charspec''
+:;Volume Abstract (position 328; 8 bytes)
+::''extent_ad''
+:;Volume Copyright Notice (position 336; 8 bytes)
+::''extent_ad''
+:;Application Identifier (position 344; 32 bytes)
+::''regid''
+:;Recording Date and Time (position 376; 12 bytes)
+::''timestamp''
+:;Implementation Identifier (position 388; 32 bytes)
+::''regid''
+:;Implementation Use (position 420; 64 bytes)
+:;Predecessor Volume Descriptor Sequence Location (position 484; 4 bytes)
+:;Flags (position 488; 2 bytes)
+:;Reserved (position 490; 22 bytes)
+::Zeroed
 :
 
 == UDF ==
