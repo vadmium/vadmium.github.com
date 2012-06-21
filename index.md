@@ -1,6 +1,6 @@
 ---
+layout: default
+title: index
 ---
-<!doctype html>
-<meta charset=UTF-8>
 
-[Rar](rar)
+* [Rar](rar)
