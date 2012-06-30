@@ -1,6 +1,6 @@
 <!doctype html>
 <meta charset=UTF-8>
-<title>{{ page.title }}</title>
-<link rel="icon" href="n.png">
+{% if page.title %}<title>{{ page.title }}</title>
+{% endif %}<link rel="icon" href="n.png">
 
 {{ content }}
