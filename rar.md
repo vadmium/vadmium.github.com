@@ -6,8 +6,9 @@ title: Rar
 # Rar #
 
 * Wikipedia: [RAR](https://en.wikipedia.org/wiki/RAR)
-* [forensicswiki.org/wiki/RAR](http://www.forensicswiki.org/wiki/RAR)
-* Rar 4.11 format: [RARFileStructure.txt](http://www.forensicswiki.org/w/images/5/5b/RARFileStructure.txt)
+* <http://www.forensicswiki.org/wiki/RAR>
+    * Rar 4.11 format: <http://www.forensicswiki.org/w/images/5/5b/RARFileStructure.txt>
+* Rar format: <https://kthoom.googlecode.com/hg/docs/unrar.html>
 
 ## Versions ##
 
@@ -19,40 +20,46 @@ RAR 3 features a PPM based compression algorithm developed by Dmitry Shkarin
 
 ## Implementations ##
 
-### unRAR ###
+### unRAR (Roshal) ###
 
 Free source code by Eugene Roshal
 
+* Licence excludes RAR compression
+
 ### Unique RAR Library (<i>unrarlib</i>) ###
 
-[unrarlib.org](http://www.unrarlib.org)
+<http://www.unrarlib.org>
 
 * By Christian Scheurer; Unix port by Johannes Winkelmann
 * Decompression, decryption, version 2.0
 * Licence: GPL or except RAR compression
-* Online sources: [Source Forge Subversion](http://unrarlib.svn.sourceforge.net/viewvc/unrarlib/trunk/rar2)
+* Source Forge Subversion sources: [unrarlib/trunk/rar2](http://unrarlib.svn.sourceforge.net/viewvc/unrarlib/trunk/rar2)
 
-### <i>unrar</i> ###
+### <i>unrar</i> (Asselstine) ###
 
-[home.gna.org/unrar](http://home.gna.org/unrar)
+<http://home.gna.org/unrar>
 
 * GPL
 * Uses Unique Rar Library
-* Project host: [Gna](https://gna.org/projects/unrar)
+* Gna project: [unrar](https://gna.org/projects/unrar)
 * Ben Asselstine
-* Online sources: [Gna CVS](http://cvs.gna.org/cvsweb/unrar?cvsroot=unrar)
+* Gna CVS sources: [unrar](http://cvs.gna.org/cvsweb/unrar?cvsroot=unrar)
 * Wikipedia: [GNA UnRAR](https://en.wikipedia.org/wiki/Unrar#GNA_UnRAR)
 
 ### The Unarchiver ###
 
-[unarchiver.c3.cx](http://unarchiver.c3.cx)
+<http://unarchiver.c3.cx>
 
 * Objective C, OS X oriented
 * LGPL
-* Project host: [Google Code](https://code.google.com/p/theunarchiver/)
-* XAD Master library online sources: [Google Code Mercurial](https://code.google.com/p/theunarchiver/source/browse/XADMaster)
+* Google Code project: [theunarchiver](https://code.google.com/p/theunarchiver/)
+* Google Code Mercurial XAD Master library sources: _XADMaster_ directory: <https://code.google.com/p/theunarchiver/source/browse#hg/XADMaster>; <https://theunarchiver.googlecode.com/hg/XADMaster>
 * Wikipedia: [The Unarchiver](https://en.wikipedia.org/wiki/The_Unarchiver)
+
+### VLC ###
+
+Rar access module: <http://git.videolan.org?p=vlc.git;a=tree;f=modules/access/rar>
 
 ### Other ###
 
-* Erik Larsson’s RAR archive tools: http://www.catacombae.org/jlrarx.html
+* Erik Larsson’s RAR archive tools: <http://www.catacombae.org/jlrarx.html>
