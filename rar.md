@@ -6,8 +6,11 @@ title: Rar
 # Rar #
 
 * Wikipedia: [RAR](https://en.wikipedia.org/wiki/RAR)
+
 * <http://www.forensicswiki.org/wiki/RAR>
-    * Rar 4.11 format: <http://www.forensicswiki.org/w/images/5/5b/RARFileStructure.txt>
+
+  * Rar 4.11 format: <http://www.forensicswiki.org/w/images/5/5b/RARFileStructure.txt>
+
 * Rar format: <https://kthoom.googlecode.com/hg/docs/unrar.html>
 
 ## Versions ##
