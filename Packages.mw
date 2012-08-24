@@ -1,10 +1,10 @@
 == Survey ==
 
 === Mandriva ===
-[[WP:Mandriva Linux]]: Libraries policy [//wiki.mandriva.com/en/Libraries_policy //wiki.mandriva.com/en/Libraries policy]
+[[WP:Mandriva Linux]]: //wiki.mandriva.com/en/[http://wiki.mandriva.com/en/Libraries%20policy Libraries policy]
 
 * [[wp:RPM package|RPM]]s
-* Separate libraries, named ⟨main library⟩⟨major⟩, where the main library name begins with ''lib'' (libfoo2, libfoo2-2.3.4)
+* Separate libraries, named ⟨''main library''⟩⟨''major''⟩, where the main library name begins with ''lib'' (libfoo2, libfoo2-2.3.4)
 ** May install various major versions of the same main library simultaneously
 ** Some libraries include an API version in their name (library ''libfoo-1.2.so.4'' → package ''libfoo1.2_4'')?? Similarly if the package name ends with some other number.
 ** Multiple library packages only when needed (e.g. different ''major'')
@@ -35,7 +35,7 @@
 
 == Issues ==
 
-* [//wiki.mandriva.com/en/Overlinking_issues_in_packaging //wiki.mandriva.com/en/Overlinking issues in packaging]: When buliding a dynamically-linked executable, libraries may be unnecessarily specified, which will add unnecessarily complex dependencies
+* [http://wiki.mandriva.com/en/Overlinking%20issues%20in%20packaging //wiki.mandriva.com/en/Overlinking issues in packaging]: When building a dynamically-linked executable, libraries may be unnecessarily specified, which will add unnecessarily complex dependencies
 
 == Recipes ==
 
