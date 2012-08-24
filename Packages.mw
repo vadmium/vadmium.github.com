@@ -36,3 +36,32 @@
 == Issues ==
 
 * [//wiki.mandriva.com/en/Overlinking_issues_in_packaging //wiki.mandriva.com/en/Overlinking issues in packaging]: When buliding a dynamically-linked executable, libraries may be unnecessarily specified, which will add unnecessarily complex dependencies
+
+== Recipes ==
+
+Collections of software package recipes
+
+=== Arch Linux ===
+
+* repositories
+** Subversion; Git; web interface
+* AUR
+** Web interface; Git history mirror
+
+=== Open Embedded ===
+
+* classic
+* ''oe-core''
+
+=== Gentoo’s Portage ===
+
+* http://gentoo.kems.net/gentoo-portage
+
+=== BSD ports? ===
+
+* http://www.freebsd.org/cgi/cvsweb.cgi/ports/devel/bzr-gtk
+
+=== Other ===
+
+* Debian
+* Fedora
