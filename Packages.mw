@@ -36,6 +36,7 @@
 == Issues ==
 
 * [http://wiki.mandriva.com/en/Overlinking%20issues%20in%20packaging //wiki.mandriva.com/en/Overlinking issues in packaging]: When building a dynamically-linked executable, libraries may be unnecessarily specified, which will add unnecessarily complex dependencies
+* http://upstream-tracker.org/
 
 == Recipes ==
 
