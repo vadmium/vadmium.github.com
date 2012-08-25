@@ -211,3 +211,11 @@
 == UDF ==
 
 [[WP:Universal Disk Format]]
+
+[http://www.osta.org/specs OTSA UDF specifications]
+
+* Subset of ISO/IEC 13346 = ECMA-176 = NSR
+
+=== 1.02 ===
+
+* logical sector size = physical sector size = logical block size
