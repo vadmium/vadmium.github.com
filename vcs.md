@@ -6,13 +6,13 @@ title: VCS notes
 
 # Selective commit #
 * `git commit --patch [-p]`
-* `bzr shelve && bzr commit; bzr unshelve`  # Select changes _not_ to commit
+* `bzr shelve && bzr commit; bzr unshelve` # Select changes _not_ to commit
     for _shelve_
 * `hg record`
 
 # Amend commit #
 * `git commit --amend`
-* `bzr uncommit && bzr commit`  # Log entry etc are lost; using _gcommit_ or
+* `bzr uncommit && bzr commit` # Log entry etc are lost; using _gcommit_ or
     _qcommit_ will populate the old log entry
 
 # Author #
@@ -38,5 +38,6 @@ title: VCS notes
 * `gitk --all HEAD -n10000`
 * `bzr qlog`
 * `bzr visualise`
-* `hg view`  # Requires enabling _hgk_ extension
-* `hgview`  # QT
+* Tortoise Hg (QT)
+* `hg view` # Requires enabling _hgk_ extension
+* `hgview` # QT
