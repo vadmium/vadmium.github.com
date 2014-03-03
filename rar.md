@@ -15,6 +15,7 @@ title: Rar
 
 ## Versions ##
 
+* <http://rescene.wikidot.com/rar-versions>
 * 2\.0
 
 ### 3 ###
@@ -56,8 +57,12 @@ Free source code by Eugene Roshal
 * Objective C, OS X oriented
 * LGPL
 * Google Code project: [theunarchiver](https://code.google.com/p/theunarchiver/)
-* Google Code Mercurial XAD Master library sources: _XADMaster_ directory: <https://code.google.com/p/theunarchiver/source/browse#hg/XADMaster>; <https://theunarchiver.googlecode.com/hg/XADMaster>
 * Wikipedia: [The Unarchiver](https://en.wikipedia.org/wiki/The_Unarchiver)
+
+Google Code Mercurial XAD Master library sources, _XADMaster_ directory:
+
+* Browser: <https://code.google.com/p/theunarchiver/source/browse#hg/XADMaster>
+* Plain: <https://theunarchiver.googlecode.com/hg/XADMaster>
 
 ### VLC ###
 
