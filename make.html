@@ -9,6 +9,14 @@
 
 <body>
 <h1>Make</h1>
+
+<div><a
+href="http://pubs.opengroup.org/onlinepubs/9699919799/utilities/make.html">
+    http://pubs.opengroup.org/onlinepubs/9699919799/utilities/make.html
+    </a></div>
+<div><a href="https://man.openbsd.org/make">https://man.openbsd.org/make</a>
+    </div>
+
     <p>For Posix, you have to have the special target “.POSIX:” on the first
 non-comment line. (Special targets, beginning with a dot and containing
 uppercase letters, do not count as the default target even if they are
@@ -20,13 +28,34 @@ ambiguity of an “include” directive versus assigning to a variable called
     <p>Don’t include comments on macro definition lines, because trailing
 space before the comment is usually included in the definition value.</p>
 
+<h2>Terminology</h2>
+<dl>
+  <dt>prerequisite</dt> <dd>File that target depends on</dd>
+  <dt>rule</dt> <dd>Target(s), prerequisites (if any), and commands to
+      generate the target (if any)
+    <dl>
+      <dt>inference rule</dt> <dd>One target name has a dot (.) and no
+          forward slash (/)</dd>
+      <dt>target rule</dt> <dd>May have multiple targets</dd>
+    </dl></dd>
+  <dt>target</dt>
+      <dd>Generated file, or similar syntax (e.g. “.POSIX”, “.o.c”).
+      The first target other than “special” targets and inference
+      rules is the default target.</dd>
+  <dt>dependency line</dt> <dd>associates targets and prerequisites
+    <ul>
+      <li>set of commands for a target</li>
+      <li>each separate shell command?</li>
+    </ul></dd>
+</dl>
+
 <h2>Line continuation</h2>
     <p>In general, any whitespace before the backslash and newline is
 collapsed into a single space.</p>
     <p>By Posix, an escaped newline in a command should be retained, and the
 one “command line” will have two (or more) lines. Only the initial tab (if
 any) is removed.</p>
-    <p>BSD <i>make</i> replaces the escaped newline and all leading
+    <p>BSD Make replaces the escaped newline and all leading
 whitespace with a single space, so the shell does not receive a backslash (\)
 nor newline, and a shell word cannot be continued across two makefile
 lines.</p>
@@ -39,7 +68,7 @@ lines.</p>
 
 <div>$(name:a%b=c%d)</div>
 
-<p><i>gmake</i> and <i>bmake</i> both seem to support this</p>
+<p>Gnu and BSD Make both seem to support this.</p>
 
 <h2>Pattern rules (metarules)</h2>
     <p>Proposed for Posix
