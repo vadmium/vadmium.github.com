@@ -1,5 +1,5 @@
 <!doctype html>
-<meta charset=UTF-8>
+<meta charset={% if page.coding %}{{ page.coding }}{% else %}UTF-8{% endif %}>
 <title>{{ page.title }}</title>
 <link rel="icon" href="n.png">
 

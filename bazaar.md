@@ -7,7 +7,7 @@ title: Bazaar
 http://doc.bazaar.canonical.com/
 
 # Bazaar glossary #
-
+http://doc.bazaar.canonical.com/latest/en/user-guide/core_concepts.html
 Bazaar wiki: http://wiki.bazaar.canonical.com/[CategoryTerm](http://wiki.bazaar.canonical.com/CategoryTerm)
 
                              │ No separate repository │ Shared repository   
@@ -29,10 +29,13 @@ Stores revisions of history
 
 Bazaar help: _repositories_
 
+* Revisions ids have a random component by default. See _bzrlib.generate_ids.gen_revision_id_ <https://bazaar.launchpad.net/~bzr-pqm/bzr/bzr.dev/view/head:/bzrlib/generate_ids.py>. So the revision id would need to be saved in order to reconstruct it exactly.
+
 ## branch ##
 
 Records history leading up to single point (?)
 
+* Has the revision numbers corresponding to development history
 * History is stored in a _repository_
 * **standalone branch:** Repository and branch stored in same place
 * **shared repository** (also \[sometimes?\] simply **repository**): Stores revisions of multiple branches
