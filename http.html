@@ -67,8 +67,9 @@ href="https://github.com/abarth/http-state/blob/master/notes/2009-08-05-Dan-Wins
 </ul>
 
 <p>RFC 6265 gives a generic procedure to parse the date. The date is split
-into tokens of digits, letters and colons, so the comma (,) and spaces are
-treated as delimiters. These tokens are matched to the day number,
+into tokens of digits, letters, and colons (:), so the
+comma (,), dashes (-), and spaces in the above formats are
+treated as delimiters. The tokens are matched to the day number,
 month name, year name, and time components. The order doesn’t matter,
 except that the day of the month has to come before the year. The
 weekday name and time zone are ignored, and years 99 and less are treated as
