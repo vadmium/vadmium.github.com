@@ -1,0 +1,77 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+    <title>HTTP</title>
+    <meta name="viewport" content="width=device-width">
+</head>
+
+<body>
+<h1>HTTP</h1>
+
+<h2>Cookies</h2>
+
+<ul>
+    <li>Netscape specification:</li>
+    <ul>
+        <li>Last version: <a href="https://curl.haxx.se/rfc/cookie_spec.html"
+            >https://curl.haxx.se/rfc/cookie_spec.html</a></li>
+        <li>Earlier:
+            <a href="http://citycat.ru/doc/HTML/Netscape/cookie.html"
+            >http://citycat.ru/doc/HTML/Netscape/cookie.html</a></li>
+    </ul>
+    <li><a href="https://tools.ietf.org/html/rfc2109">RFC 2109</a>
+        (Version=1)</li>
+    <li><a href="https://tools.ietf.org/html/rfc2965">RFC 2965</a>
+        (Set-Cookie2)</li>
+    <li><a href="https://tools.ietf.org/html/rfc6265">RFC 6265</a></li>
+</ul>
+
+<h3>Syntax</h3>
+
+<p>Cookie names and values are not allowed to contain semicolons nor commas.
+The Netscape specification disallows whitespace, but seems to allow quotes as
+ordinary characters. RFC 6265 disallows double quotes, except that
+the whole value may be enclosed in double quotes. Support for
+proper <i>quoted-string</i> values (RFCs 2109 and 2965), where
+the string can contain almost anything, backslashes can escape
+internal double-quotes, and a backslash at the end of the string is ambiguous
+(by accident: <a href="https://www.rfc-editor.org/errata/eid3407"
+>errata id. 3407</a>), is spotty.</p>
+    <p>Avoid cookie names beginning with a dollar sign ($; RFCs 2109
+and 2965), or “__Secure-” or “__Host-” (two underscores “_”, one dash “-”; 
+<a href="https://tools.ietf.org/html/draft-ietf-httpbis-rfc6265bis-02"
+>draft-ietf-httpbis-rfc6265bis-02</a>).</p>
+    <p>Multiple cookies go into a single Cookie header field separated by
+semicolons (rather than commas). For Set-Cookie, multiple cookies
+should be given in multiple header fields. (Splitting with commas
+could be confusing with the comma in dates.)</p>
+
+<h3>Expires</h3>
+
+<p><a
+href="https://github.com/abarth/http-state/blob/master/notes/2009-08-05-Dan-Winship.txt"
+>https://github.com/abarth/http-state/blob/master/notes/2009-08-05-Dan-Winship.txt</a
+></p>
+    <p>Suggested date formats include:</p>
+
+<ul>
+    <li><i>Wdy</i>, <i>DD</i>-<i>Mon</i>-<i>YYYY</i>
+        <i>HH</i>:<i>MM</i>:<i>SS</i> GMT
+        [format in last Netscape specification]</li>
+    <li>Wednesday, 09-Nov-99 23:12:40 GMT
+        [example in both Netscape specification versions]</li>
+    <li>Tue, 04 Sep 2018 00:02:05 GMT [RFC 6265: <i>rfc1123-date</i>,
+        RFC 2616 profile of RFC 1123 update to RFC 822]</li>
+</ul>
+
+<p>RFC 6265 gives a generic procedure to parse the date. The date is split
+into tokens of digits, letters and colons, so the comma (,) and spaces are
+treated as delimiters. These tokens are matched to the day number,
+month name, year name, and time components. The order doesn’t matter,
+except that the day of the month has to come before the year. The
+weekday name and time zone are ignored, and years 99 and less are treated as
+1970–2069.</p>
+</body>
+</html>
