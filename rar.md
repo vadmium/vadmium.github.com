@@ -7,12 +7,9 @@ title: Rar
 # Rar #
 
 * Wikipedia: [RAR](https://en.wikipedia.org/wiki/RAR)
-
 * <http://www.forensicswiki.org/wiki/RAR>
-
   * Rar 4.11 format: <http://www.forensicswiki.org/w/images/5/5b/RARFileStructure.txt>
-
-* Rar format: <https://kthoom.googlecode.com/hg/docs/unrar.html>
+* Rar format: <https://codedread.github.io/bitjs/docs/unrar.html>
 
 ## Versions ##
 
@@ -85,11 +82,32 @@ Flags:
 ### FILE (LHD): 0x74 “t” ###
 
 Flags:
+* 0x0001: SPLIT_BEFORE
+* 0x0002: SPLIT_AFTER
 * 0x0004: PASSWORD
 * 0x0008: COMMENT
 * 0x0010: SOLID
 * 0x00E0: DICT [_rarfile_], WINDOW [Unarchiver, Asselstine]
   * 0x00E0: DIRECTORY
+* 0x1000: EXTTIME
+
+If EXTTIME is set, an extended time field follows the name string:
+* 2 bytes: Flags
+  * 0xF000: _mtime_ (adds resolution to the existing DOS time field)
+    * 0x8000: VALID
+    * 0x4000: If set, adds 1 s to the DOS time
+    * 0x3000: Number of bytes encoding the fractional seconds
+      * 1: 6553.6 µs units
+      * 2: 25.6 µs units
+      * 3: 0.1 µs units
+  * 0x0F00: _ctime_
+  * 0x00F0: _atime_
+  * 0x000F: _arctime_
+* 0–3 bytes: Little-endian encoding of fractional _mtime_ seconds
+* 4(?) bytes: If _ctime_ VALID flag set, _ctime_ in DOS time format
+* 0–3 bytes: _ctime_ fractional seconds
+* 4(?) + 0–3 bytes: _atime_
+* 4(?) + 0–3 bytes: _arctime_
 
 ### Recovery block (2.00; “protect”): 0x78 “x” ###
 
@@ -101,9 +119,26 @@ Flags:
 * SUB [_rarfile_], NEWSUB [Asselstine], SUBBLOCK [VLC]
 * Flags set: LONG_BLOCK, SKIP_IF_UNKNOWN
 
+### Volume end block: 0x7B “{” ###
+
+Flags:
+* SKIP_IF_UNKNOWN is set
+* 0x0001: Archive continues into another volume
+* 0x0002: Volume CRC field present
+* 0x0004: REVSPACE
+* 0x0008: Volume number field present
+
+Fields:
+* 4 bytes: CRC-32 of all of the volume data, from the initial marker block
+  up to the block before this end block
+* 2 bytes: Volume part number, zero based
+  (0 => *.part1.rar, 1 => *.part2.rar, etc)
+* 7 zero bytes: REVSPACE
+
 ## Recovery records ##
 
 * CRC initialiser for 3.00 sub-block field is 0x0FFF FFFF; apparently a typo [Stack Overflow: [On which data is the File CRC in NEWSUB_HEAD of a RAR Recovery Record based?](http://stackoverflow.com/questions/8126645/on-which-data-is-the-filecrc-in-newsub-head-of-a-rar-recovery-record-based)]
 * Protected data is split into 512-byte sectors
 * A checksum is stored for each individual protected data sector. The checksum is the least significant 16 bits of the CRC32.
-* A specific number of 512-byte recovery record sectors are calculated from the exclusive _or_ of the protected data sectors. They are no necessarily aligned to any disk sector.
+* A specific number of 512-byte recovery record sectors are calculated from the exclusive _or_ of the protected data sectors. They are
+  not necessarily aligned to any disk sector.
