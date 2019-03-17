@@ -133,7 +133,7 @@ Fields:
 ### Sub-block (3.00): 0x7A “z” ###
 
 * SUB [_rarfile_], NEWSUB [Asselstine], SUBBLOCK [VLC]
-* Flags set: LONG_BLOCK, SKIP_IF_UNKNOWN
+* Flag set: LONG_BLOCK
 
 ### Volume end block: 0x7B “{” ###
 
