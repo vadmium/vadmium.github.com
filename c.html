@@ -30,5 +30,14 @@ function pointer. Posix requires that function pointers returned from
 the 2013 edition (TC1), it required all function pointers be convertable to
 <i>void</i> pointers (changed in bug <a
 href="http://austingroupbugs.net/view.php?id=74">74</a>).</p>
+
+<h2><i>printf</i></h2>
+
+<p>A string conversion "%s" takes a pointer to a string of <i>char</i>.
+If no precision is specified, the string must include a null byte.
+If a precision is specified (e.g. "%.*s"), the C standard suggests
+the string may not need to be null terminated
+(<a href="https://port70.net/~nsz/c/c99/n1256.html#7.19.6.1p8">C99 7.19.6.1
+¶8</a>).</p>
 </body>
 </html>

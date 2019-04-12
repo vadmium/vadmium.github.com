@@ -91,23 +91,39 @@ Flags:
   * 0x00E0: DIRECTORY
 * 0x1000: EXTTIME
 
-If EXTTIME is set, an extended time field follows the name string:
-* 2 bytes: Flags
-  * 0xF000: _mtime_ (adds resolution to the existing DOS time field)
-    * 0x8000: VALID
-    * 0x4000: If set, adds 1 s to the DOS time
-    * 0x3000: Number of bytes encoding the fractional seconds
-      * 1: 6553.6 µs units
-      * 2: 25.6 µs units
-      * 3: 0.1 µs units
-  * 0x0F00: _ctime_
-  * 0x00F0: _atime_
-  * 0x000F: _arctime_
-* 0–3 bytes: Little-endian encoding of fractional _mtime_ seconds
-* 4(?) bytes: If _ctime_ VALID flag set, _ctime_ in DOS time format
-* 0–3 bytes: _ctime_ fractional seconds
-* 4(?) + 0–3 bytes: _atime_
-* 4(?) + 0–3 bytes: _arctime_
+Fields:
+* . . .
+* 4 bytes: DOS time
+  * Bits 25–31: Year − 1980
+  * Bits 21­–24: Month (1–12)
+  * Bits 16­–20: Day of month (1–31)
+  * Bits 11­–15: Hour
+  * Bits 5­–10: Minute
+  * Bits 0­–4: Second / 2
+* . . .
+* 4 bytes: File attributes
+  * 0x10: Directory
+  * 0x20: Archive (?)
+  * 0x200: Sparse file (?)
+* . . .
+* Name string
+* If EXTTIME is set, an extended time field:
+  * 2 bytes: Flags
+    * 0xF000: _mtime_ (adds resolution to the existing DOS time field)
+      * 0x8000: VALID
+      * 0x4000: If set, adds 1 s to the DOS time
+      * 0x3000: Number of bytes encoding the fractional seconds
+        * 1: 6553.6 µs units
+        * 2: 25.6 µs units
+        * 3: 0.1 µs units
+    * 0x0F00: _ctime_
+    * 0x00F0: _atime_
+    * 0x000F: _arctime_
+  * 0–3 bytes: Little-endian encoding of fractional _mtime_ seconds
+  * 4(?) bytes: If _ctime_ VALID flag set, _ctime_ in DOS time format
+  * 0–3 bytes: _ctime_ fractional seconds
+  * 4(?) + 0–3 bytes: _atime_
+  * 4(?) + 0–3 bytes: _arctime_
 
 ### Recovery block (2.00; “protect”): 0x78 “x” ###
 
