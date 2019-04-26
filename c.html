@@ -20,6 +20,47 @@ up or down (even when both operands are negative).
 The remainder can be positive or negative. (<a
 href="https://port70.net/~nsz/c/c89/c89-draft.html#3.3.5">C89 3.3.5</a>)</p>
 
+<h2>Data types</h2>
+
+<p>Unsigned integers consist of value bits and padding bits.
+Incorrect values for padding bits may produce a trap representation.
+When all value and padding bits are zero, this has to represent
+the integer zero (not a trap representation).</p>
+    <p>Each signed integer type has an unsigned counterpart, and
+corresponding signed and unsigned representations are related.
+One bit in the unsigned type (either a value bit, or a padding bit)
+corresponds to the sign bit. Every valid signed representation where
+the sign bit is zero represents the same value in the unsigned type
+(<a href="https://port70.net/~nsz/c/c99/n1256.html#6.2.6.2p5">C99
+6.2.6.2 ¶5</a>). A signed integer may use sign-and-magnitude,
+one’s complement, or two’s complement representation.
+The representation for negative zero, or the most negative value
+for two’s complement, may be defined as a trap representation.</p>
+    <p>The <i>unsigned char</i> type cannot have padding bits,
+and an array of them can represent the bytes of any object.
+Plain <i>char</i> is a distinct type, but otherwise has the same
+behaviour as either <i>signed</i> or <i>unsigned char</i>.</p>
+    <p>The <i>uint</i>N<i>_t</i> types do not have padding bits;
+therefore <i>N</i> must be a multiple of CHAR_BIT.
+The <i>int</i>N<i>_t</i> types use two’s complement representation,
+and cannot have padding bits nor a trap representation
+(<a href="https://port70.net/~nsz/c/c99/n1256.html#7.18.2.1">C99
+7.18.2.1</a>).</p>
+    <p>The types in each of the following groups have the same size and
+alignment, and the same representation for values that they support, and
+may be interchanged in function arguments, return values, and unions.</p>
+
+<ul>
+    <li>Corresponding signed and unsigned integers</li>
+    <li>Qualified (with <i>const</i>, <i>volatile</i>, and/or
+        <i>restrict</i>) and unqualified types</li>
+    <li>Pointers to <i>void</i> and (signed or unsigned) <i>char</i></li>
+    <li>Pointers to qualified and unqualified versions of compatible
+        types</li>
+    <li>All pointers to structures</li>
+    <li>All pointers to unions</li>
+</ul>
+
 <h2>Pointers</h2>
 
 <p>Pointers to different types are not necessarily compatible, except that
