@@ -10,6 +10,25 @@
 <body>
 <h1>HTTP</h1>
 
+<h2>Minimum support</h2>
+
+<p>For a request, GET and HEAD methods, Content-Length and Transfer-Encoding
+fields, chunked encoding. Folded request field support is not required. Since
+RFC 2616: “Expect: 100-continue”.</p>
+
+<h2>Caching</h2>
+
+<p>With no headers, some responses (including a 200 “Okay” response to a GET)
+may be stored in a cache by default. If a response is cacheable and no
+freshness expiry time is given, an expiry time may be calculated, e.g.
+based on the difference between the Last-Modified and Date response
+fields.</p>
+    <p>To indicate something should always come from a cache if possible,
+set a large expiry time (e.g. <i>max-age=2592000</i> for 30 days).
+To prevent something from being stored in a shared cache, if the
+Authorization field is not used in the request, a <i>private</i>
+response directive should be included.</p>
+
 <h2>Cookies</h2>
 
 <ul>
