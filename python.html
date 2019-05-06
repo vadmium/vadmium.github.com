@@ -1,0 +1,40 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+    <title>Python</title>
+    <meta name="viewport" content="width=device-width">
+</head>
+
+<body>
+<h1>Python</h1>
+
+<p><b>math.ceil</b> could return a <i>float</i> or an <i>Integral</i>
+type when passed a <i>float</i>, and should return an <i>Integral</i>
+when passed other types. To convert the <i>float</i> to an <i>int</i>,
+you can use <i>round</i> without <i>ndigits</i>. To convert
+an <i>Integral</i> (including <i>int</i>) to an <i>int</i>, you should
+be able to use the <i>int</i> constructor.</p>
+    <p><b>round</b> without <i>ndigits</i> converts <i>float</i> to
+<i>int</i>. In general it should return an <i>Integral</i>, which
+should be convertable to <i>int</i> with the <i>int</i> constructor.</p>
+
+<h2>Regular expressions</h2>
+
+<p>In a character set “[. . .]”, put the closing square bracket “]” at the
+start to count as a regular character or the start of a character range.
+(Escape it with a backslash, “\]”, also specifies a regular character.)
+Put the ASCII hyphen “-” at the end to count as a single character (or
+escape it with a backslash, or put it at the start). You cannot have a range
+ending in a closing square bracket. The ASCII caret “^” has to be after
+the first character to lose its special meaning. The opening
+square bracket “[” cannot be the first character in the set.</p>
+    <p>Character classes (\d, \D, \s, \S, \w, and \W) are accepted
+within a character set. The escape sequence \b specifies the backspace
+control character. It is not clear how to specify a backslash in a
+character set. It may be safer to put it as an alternative to the
+character set: (?:[. . .] | \\).</p>
+
+</body>
+</html>
