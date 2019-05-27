@@ -26,7 +26,7 @@ In HTML 5, this is an "obsolete permitted" doctype. In XML, DOCTYPE is a keyword
 
 * Ampersands "&" specify character references
 * No value implies empty string
-* Unquoted value: HTML 5.0 says whitespace, double quotes (`"`), apostrophes (`'`), equal signs "=", less-than and greater-than signs "< >", and backticks (`) are illegal, and the value must not be empty. HTML 4.01 says only ASCII letters, digits, hyphens `"-"`, full stops ".", underscores "`_`", and colons ":" are allowed. HTML 4.0 (before 4.01) did not allow underscores "`_`" nor colons ":" either. <http://jkorpela.fi/qattr.html>
+* Unquoted value: HTML 5.0 says whitespace, double quotes (`"`), apostrophes (`'`), equal signs "=", less-than and greater-than signs "< >", and backticks (`` ` ``) are illegal, and the value must not be empty. HTML 4.01 says only ASCII letters, digits, hyphens `"-"`, full stops ".", underscores "`_`", and colons ":" are allowed. HTML 4.0 (before 4.01) did not allow underscores "`_`" nor colons ":" either. <http://jkorpela.fi/qattr.html>
 * Quoted value: only the quote type (single or double) is illegal inside. HTML 4.0 says the greater-than sign ">" ''should'' also be escaped, because it could be seen as the end of the element tag. Numeric references and "&amp;quot;" can be used to escape quotes.
 * HTML 5.0: <https://www.w3.org/TR/html50/syntax.html#attributes-0>
 * HTML 4.01: <https://www.w3.org/TR/html401/intro/sgmltut.html#h-3.2.2>
