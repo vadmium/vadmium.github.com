@@ -19,6 +19,16 @@ be able to use the <i>int</i> constructor.</p>
     <p><b>round</b> without <i>ndigits</i> converts <i>float</i> to
 <i>int</i>. In general it should return an <i>Integral</i>, which
 should be convertable to <i>int</i> with the <i>int</i> constructor.</p>
+    <p><b>cgi.parse_multipart</b>(<i>fp</i>, <i>pdict</i>): <i>fp</i> is a
+BufferedIOBase reader; <i>pdict</i> is a mapping and must have the lowercase
+text key “boundary”, with a value in bytes. The result is different to
+<i>parse_qs</i> in that the keys are the field names in text, but the
+value list items are byte strings, not decoded to text.</p>
+    <p><b>cgi.parse_header</b> works with text strings of the Content-Type
+header field format. It returns a tuple of two items; the first is the raw
+<i>type/subtype</i> string; the second is a dictionary mapping
+<i>attribute=value</i> pairs. Attribute names are converted to lowercase,
+and their values are de-quoted.</p>
 
 <h2>Regular expressions</h2>
 
