@@ -46,5 +46,15 @@ control character. It is not clear how to specify a backslash in a
 character set. It may be safer to put it as an alternative to the
 character set: (?:[. . .] | \\).</p>
 
+<h2>HTTP cookies</h2>
+
+<p><b>http.cookies</b> is for HTTP servers, and can parse the Cookie
+header field.</p>
+    <p><b>http.cookiejar</b> is for HTTP clients. <b>CookieJar</b> holds
+cookies for various scopes (domains, paths, etc). <b>Cookie</b> holds
+a single cookie record, including its name, value, and attributes. Cookie
+has no documented constructor; instead it is recommended to convert a HTTP
+response to a sequence of Cookie instances using a CookieJar method.</p>
+
 </body>
 </html>
