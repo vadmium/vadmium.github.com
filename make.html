@@ -1,0 +1,39 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+    <title>Make</title>
+    <meta name="viewport" content="width=device-width">
+</head>
+
+<body>
+<h1>Make</h1>
+    <p>For Posix, you have to have the special target “.POSIX:” on the first
+non-comment line. (Special targets, beginning with a dot and containing
+uppercase letters, do not count as the default target even if they are
+first.)</p>
+
+<h2>Pattern rules (metarules)</h2>
+    <p>Proposed for Posix
+(<a href="http://austingroupbugs.net/view.php?id=513"
+>http://austingroupbugs.net/view.php?id=513</a>).</p>
+
+<div>dest/%.o: src/%.c</div>
+<div>→ $(CC) [. . .] $&lt; -o $@</div>
+
+Accepted future Posix Make feature:
+percent symbol pattern substitution $(name:a%b=c%d)
+<a href="http://austingroupbugs.net/view.php?id=519">http://austingroupbugs.net/view.php?id=519</a>
+- gmake and bmake both seem to support this
+
+<h2>$(macro) or ${macro}?</h2>
+<ul>
+<li>$(macro) is more make-specific, and seems more common</li>
+<li>${macro} resembles other languages</li>
+</ul>
+
+$(name:suffix=new) is allowed, and works on the suffix of each "word" after splitting by spaces and newlines
+
+</body>
+</html>

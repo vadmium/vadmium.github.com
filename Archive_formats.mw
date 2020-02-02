@@ -1,0 +1,41 @@
+== Compression ==
+{| class="wikitable"
+! || Wikipedia || Data || Metadata
+|-
+|Zip || [[WP:Zip (file format)|Zip (file format)]] || file || uncompressed sequential (?)
+|-
+|HTML Help || [[WP:HTML Help|HTML Help]] || 64 KiB blocks (?) ||
+|-
+|Rar || [[WP:Rar (file format)|Rar (file format)]] || file; solid ||
+|-
+|Squash FS || [[WP:Squash FS|Squash FS]] || blocks (?) ||
+|-
+|7Z || [[WP:7Z|7Z]], [[WP:Seven zip|Seven zip]] || file; solid; configurable blocks
+|-
+|G-zip || ''[[WP:gzip|gzip]]'' || ||
+|-
+|B-zip 2 || ''[[WP:bzip2|bzip2]]'' || ||
+|-
+|XZ || [[WP:XZ|XZ]] || ||
+|-
+|''compress'' || ''[[WP:compress|compress]]'' || ||
+|}
+
+== File storage ==
+{| class="wikitable"
+! || Wikipedia || Data || Metadata || Derivation || Notes
+|-
+|Zip || [[WP:Zip (file format)|Zip (file format)]] || unfragmented || sequential (?) ||
+|-
+|HTML Help || [[WP:HTML Help|HTML Help]] || 64 KiB compressed blocks (?) || ordered (?) || 
+|-
+|Rar || [[WP:Rar (file format)|Rar (file format)]] || unfragmented || encryptable ||
+|-
+|Squash FS || [[WP:Squash FS|Squash FS]] || blocks (?) || ||
+|-
+|Tar || [[WP:Tar (file format)|Tar (file format)]] || unfragmented || precedes each file || || 512 B records
+|-
+|7Z || [[WP:7Z|7Z]], [[WP:Seven zip|Seven zip]] || unfragmented (?) || encryptable
+|-
+|CPIO || [[WP:CPIO|CPIO]] || ||
+|}

@@ -6,7 +6,7 @@ title: Rar
 
 # Rar #
 
-* Wikipedia: [RAR](https://en.wikipedia.org/wiki/RAR)
+* Wikipedia: [Rar file format](https://en.wikipedia.org/wiki/Rar_file_format)
 * <http://www.forensicswiki.org/wiki/RAR>
   * Rar 4.11 format: <http://www.forensicswiki.org/w/images/5/5b/RARFileStructure.txt>
 * Rar format: <https://codedread.github.io/bitjs/docs/unrar.html>
