@@ -46,6 +46,20 @@ control character. It is not clear how to specify a backslash in a
 character set. It may be safer to put it as an alternative to the
 character set: (?:[. . .] | \\).</p>
 
+<h2>configparser</h2>
+
+<p>With <b>ConfigParser.get</b>, there is a keyword-only <i>fallback</i>
+parameter. The config option is assumed to exist if no fallback is given.
+However the “mapping protocol access” <b>ConfigParser[<i>section</i>].get</b>
+method is compatible with <i>dict.get</i>.</p>
+
+<h2>Time</h2>
+
+<p>The <b>time.time</b> function is only guaranteed 1 s precision, and on
+Unix the epoch and whether leap seconds are considered can vary. On the other
+hand, <b>datetime.datetime.now</b> is supposed to have better precision where
+possible.</p>
+
 <h2>HTTP cookies</h2>
 
 <p><b>http.cookies</b> is for HTTP servers, and can parse the Cookie
