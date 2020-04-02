@@ -7,6 +7,7 @@ layout: default
 * [C programming](c.html)
 * [HTML](html)
 * [HTTP](http.html)
+* [Java Script](javascript.html)
 * [Makefiles](make.html)
 * [Python](python.html)
 * [Rar](rar)

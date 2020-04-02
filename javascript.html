@@ -1,0 +1,37 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <meta http-equiv=Content-Type content="text/html; charset=UTF-8">
+    <title>Java Script</title>
+    <meta name="viewport" content="width=device-width">
+</head>
+
+<body>
+<h1>Java Script</h1>
+
+<ul>
+    <li><a href="http://interglacial.com/javascript_spec/"
+        >http://interglacial.com/javascript_spec/</a> (3)</li>
+    <li><a href="https://es5.github.io/multi.html"
+        >https://es5.github.io/multi</a> (5.1)</li>
+    <li>ECMA Script 2015 = 6th edition</li>
+    <li>ECMA Script 2016 = 7th edition</li>
+    <li>ECMA Script 2017 = 8th edition</li>
+    <li>ECMA Script 2018 = 9th edition</li>
+    <li>ECMA Script 2019 = 10th edition</li>
+</ul>
+
+<p><b>String.substr</b> is listed in ES3 as optional. <b>String.substring</b>
+and <b>slice</b> are both defined in ES3 and take a mandatory start and
+optional end index. If the arguments are out of order, <i>substring</i> swaps
+them so that a non-empty string is returned in many cases, while <i>slice</i>
+just returns an empty string. If an argument is negative, <i>slice</i>
+indexes back from the end of the string, while <i>substring</i> just clamps
+it to the start of the string. So avoid <i>substr</i>, use <i>substring</i>
+where the arguments could be negative but the order doesn’t matter (or
+there is only one argument), and use <i>slice</i> where the order does matter
+and negative arguments aren’t a problem.</p>
+
+</body>
+</html>
