@@ -52,6 +52,12 @@ character set: (?:[. . .] | \\).</p>
 parameter. The config option is assumed to exist if no fallback is given.
 However the “mapping protocol access” <b>ConfigParser[<i>section</i>].get</b>
 method is compatible with <i>dict.get</i>.</p>
+    <p>Section objects (ConfigParser[<i>section</i>]) include getter
+converters corresponding to ConfigParser by default: <b>getint</b>,
+<b>getfloat</b> and <b>getboolean</b>. Their signatures are compatible with
+(<i>key</i>, *, / [, <i>fallback</i>]). (<a
+href="https://docs.python.org/3/library/configparser.html#fallback-values"
+>Fallback Values</a>)</p>
 
 <h2>Time</h2>
 
