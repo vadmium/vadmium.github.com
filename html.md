@@ -36,4 +36,8 @@ In HTML 5, this is an "obsolete permitted" doctype. In XML, DOCTYPE is a keyword
 
 In HTML 4, the _action_ attribute is required, but is allowed to be an empty URL. In HTML 5, it is not allowed to be empty, but is allowed to be omitted, which implies an empty URL. The reason for disallowing the explicit empty value seems to be due to confusion about whether the _action_ URL is relative to a &lt;base&gt; element or not, and/or inconsistencies about the base with an empty URL: <https://stackoverflow.com/questions/415234/forms-with-action/617197#617197>.
 
-**Buttons:** &lt;input&gt; or &lt;button&gt;; need to specify type=submit? &lt;Button&gt; has more functionality and is favoured by MDN, but it says &lt;input&gt; is older; IE6 had troubles with multiple submit &lt;button&gt; buttons. Maybe prefer &lt;input&gt; where the content is text only.
+**Buttons:** Prefer &lt;input type=submit&gt; over &lt;button&gt; where the content is text only. &lt;Button&gt; has more functionality and is favoured by MDN, but &lt;input&gt; is older, and IE6 had troubles with multiple submit &lt;button&gt; buttons.
+
+With &lt;input type=submit&gt;, the _value_ attribute is the button's label. With multiple submit buttons, use unique _name_ attributes to identify the button. Only the _name_ and _value_ of the activated submit button is submitted.
+
+Need to specify type=submit?
