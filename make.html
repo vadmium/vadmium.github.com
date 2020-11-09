@@ -14,6 +14,15 @@ non-comment line. (Special targets, beginning with a dot and containing
 uppercase letters, do not count as the default target even if they are
 first.)</p>
 
+<h2>Pattern macro expansions</h2>
+    <p>Accepted as a future Posix Make feature:
+<a href="http://austingroupbugs.net/view.php?id=519"
+>http://austingroupbugs.net/view.php?id=519</a>.</p>
+
+<div>$(name:a%b=c%d)</div>
+
+<p><i>gmake</i> and <i>bmake</i> both seem to support this</p>
+
 <h2>Pattern rules (metarules)</h2>
     <p>Proposed for Posix
 (<a href="http://austingroupbugs.net/view.php?id=513"
@@ -21,11 +30,6 @@ first.)</p>
 
 <div>dest/%.o: src/%.c</div>
 <div>→ $(CC) [. . .] $&lt; -o $@</div>
-
-Accepted future Posix Make feature:
-percent symbol pattern substitution $(name:a%b=c%d)
-<a href="http://austingroupbugs.net/view.php?id=519">http://austingroupbugs.net/view.php?id=519</a>
-- gmake and bmake both seem to support this
 
 <h2>$(macro) or ${macro}?</h2>
 <ul>
