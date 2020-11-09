@@ -13,6 +13,24 @@
 non-comment line. (Special targets, beginning with a dot and containing
 uppercase letters, do not count as the default target even if they are
 first.)</p>
+    <p>Variable assignments may have spaces around the equals sign, but Posix
+points out that excluding the space before the equals sign avoids the
+ambiguity of an “include” directive versus assigning to a variable called
+“include”.</p>
+    <p>Don’t include comments on macro definition lines, because trailing
+space before the comment is usually included in the definition value.</p>
+
+<h2>Line continuation</h2>
+    <p>In general, any whitespace before the backslash and newline is
+collapsed into a single space.</p>
+    <p>By Posix, an escaped newline in a command should be retained, and the
+one “command line” will have two (or more) lines. Only the initial tab (if
+any) is removed.</p>
+    <p>BSD <i>make</i> replaces the escaped newline and all leading
+whitespace with a single space, so the shell does not receive a backslash (\)
+nor newline, and a shell word cannot be continued across two makefile
+lines.</p>
+    <p>Avoid comments embedded in continued command lines.</p>
 
 <h2>Pattern macro expansions</h2>
     <p>Accepted as a future Posix Make feature:
@@ -39,5 +57,7 @@ first.)</p>
 
 $(name:suffix=new) is allowed, and works on the suffix of each "word" after splitting by spaces and newlines
 
+    <p>Posix Make does not specify the := notation, but does not allow colons
+“:” in macro names either.</p>
 </body>
 </html>
