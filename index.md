@@ -8,6 +8,7 @@ layout: default
 * [HTML](html)
 * [HTTP](http.html)
 * [Java Script](javascript.html)
+* [Unix shell](shell)
 * [Makefiles](make.html)
 * [Python](python.html)
 * [Rar](rar)
