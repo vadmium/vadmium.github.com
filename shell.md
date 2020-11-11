@@ -5,6 +5,14 @@ title: Unix shell
 
 # Unix shell #
 
+## Arithmetic expansion ##
+
+Required by Posix. Integer arithmetic on C signed long (or higher rank)
+values. Includes assignment operators, but may be limited to assigning to
+variables that were previoiusly unset. Excludes increment and decrement
+operators, and the comma operator. Includes decimal, hexadecimal, and octal
+constants. The expression can include parameter (and other) expansions.
+
 ## Redirections ##
 
 Unix Base Specifications, Issue 7, [§2.7
@@ -20,7 +28,7 @@ Any file descriptor must immediately precede the redirection symbol, with no int
 
 ### Redirection types ###
 
-* `>`, `>|`: Redirect output to file. If the vertical bar form (`>|`) is used, any existing file is truncated, otherwise the overwrite behaviour depends on the _noclobber_ (C) shell option.
+* `>`, `>|`: Redirect output to file. If the vertical bar form (`>|`) is used, any existing file is truncated, otherwise the overwrite behaviour depends on the _noclobber_ (-C) shell option.
 * `>>`: Append output to file.
 * `<`: Read input from file.
 * `<<`, `<<-`: Read input from here document. The here document may be indented with tabs if the form with a dash (`<<-`) is used.
