@@ -41,3 +41,10 @@ In HTML 4, the _action_ attribute is required, but is allowed to be an empty URL
 With &lt;input type=submit&gt;, the _value_ attribute is the button's label. With multiple submit buttons, use unique _name_ attributes to identify the button. Only the _name_ and _value_ of the activated submit button is submitted.
 
 Need to specify type=submit?
+
+## Scripts ##
+
+The &lt;script type=`"text/javascript"`&gt; attribute is required by HTML 4,
+and is optional in HTML 5. The type for "intrinsic events" should be
+specified by &lt;META http-equiv=`"Content-Script-Type"`
+content=`"text/javascript"`&gt;.
