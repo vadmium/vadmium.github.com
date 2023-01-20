@@ -61,10 +61,15 @@ href="https://docs.python.org/3/library/configparser.html#fallback-values"
 
 <h2>Time</h2>
 
-<p>The <b>time.time</b> function is only guaranteed 1 s precision, and on
-Unix the epoch and whether leap seconds are considered can vary. On the other
-hand, <b>datetime.datetime.now</b> is supposed to have better precision where
-possible.</p>
+<p>The <i>time.<b>time</b></i> function is only guaranteed 1 s precision.
+Outside of Windows,
+whether leap seconds are considered can vary, and
+the zero reference point (“epoch”) can also vary before Python 3.11.
+The range can be limited to 1970–2038. On the other
+hand, <i>datetime.<b>datetime.now</b></i>
+is supposed to have better precision where
+possible, and <i>datetime</i> objects have better range
+and always count 60 s per minute.</p>
 
 <h2>HTTP cookies</h2>
 
