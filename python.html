@@ -32,19 +32,55 @@ and their values are de-quoted.</p>
 
 <h2>Regular expressions</h2>
 
+<ul>
+<li>valid: [-. . .] [. . .-] [. . .\-. . .] (include hyphen in set rather than specify a range)
+<li>A plain hyphen as the start or end of a range would be ambiguous, and would conflict with a reserved possible future use of a double literal hyphen sequence.
+<li>ranges: [. . .-\-. . .] [. . .\--. . .]
+<li>lone character ]  []. . .]  or  [. . .\]. . .]
+<li>range from ]  []-. . .]  or  [. . .\]-. . .]
+<li>range to ]  [. . .-\]. . .]
+<li>opening [ at start conflicts with reserved possible future notation  [. . .[. . .] [\[. . .]
+<li>circumflex must not be first character: [. . .^. . .]
+</ul>
+
+<ul>
+<li>- start or end
+<li>] start
+<li>[ not at start
+<li>^ not at start
+<li>[-]  []]  [\[]  ^
+<li>[]-]  [-[]  [-^]
+<li>[][]  []^]  [\[^]
+<li>[][-]  []^-]  [-^[]  [][^]
+<li>[]. . .^. . .[. . .-]
+</ul>
+
+Rules:
+<ul>
+<li>1. Put literal closing square bracket (]) at start, or escape with a backslash prefix in complemented sets
+<li>2. Put literal hyphen (-) at start, or at end if start position unavailable
+<li>3. Put literal caret (^) after start (or don't use square brackets if on its own)
+<li>4. Put literal opening square bracket ([) after start after any complementing caret (^), or escaped with a backslash prefix if only the start position is available
+<li>Literal hyphens (-) can and both opening and closing square brackets ("[" and "]") can all be escaped with a backslash prefix
+</ul>
+
 <p>In a character set “[. . .]”, put the closing square bracket “]” at the
-start to count as a regular character or the start of a character range.
+start to count as a regular character or the start[?] of a character range.
 (Escaping it with a backslash, “\]”, also specifies a regular character.)
 Put the ASCII hyphen “-” at the end to count as a single character (or
 escape it with a backslash, or put it at the start). You cannot have a range
 ending in a closing square bracket. The ASCII caret “^” has to be after
 the first character to lose its special meaning. The opening
 square bracket “[” cannot be the first character in the set.</p>
-    <p>Character classes (\d, \D, \s, \S, \w, and \W) are accepted
-within a character set. The escape sequence \b specifies the backspace
+    <p>The six special sequence character classes (\d, \D, \s, \S, \w, and \W) are accepted
+within a character set / character class that uses square brackets
+(<a href="https://docs.python.org/3/howto/regex.html#matching-characters"
+>How-to</a>). The escape sequence \b specifies the backspace
 control character. It is not clear how to specify a backslash in a
 character set. It may be safer to put it as an alternative to the
 character set: (?:[. . .] | \\).</p>
+
+Unclear if other escape sequences are valid inside square bracket character sets. Better to encode them directly (without raw strings)
 
 <h2>configparser</h2>
 
