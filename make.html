@@ -81,6 +81,25 @@ lines.</p>
 <div>dest/%.o: src/%.c</div>
 <div>→ $(CC) [. . .] $&lt; -o $@</div>
 
+<p>If the pattern has a prefix, it should end with a slash (. . ./%. . .)
+for portable behaviour.</p>
+
+<p>If a target matches multiple patterns, the first matching pattern should be
+the most specific, and should have a shorter stem than the other matches.</p>
+
+<p>More-specific patterns, with longer prefixes and suffixes,
+should come before less-specific patterns,
+otherwise the priority varies across implementations.
+Handling of targets that have a slash (/) and patterns that
+don’t have a slash varies.</p>
+
+<p>therefore these are well defined:</p>
+<div>%.o: src/%.c # subdir/x.o → src/subdir/x.c; all good. What about /abs/x.o?</div>
+<div>dir/x_%: y_% # what if the target filename is dir/x_subdir/s → y_subdir/s or should it not match? should parent/dir/x_s match?</div>
+
+<p>but this is not well defined:</p>
+<div>x_%: # does dir/x_s match?</div>
+
 <h2>$(macro) or ${macro}?</h2>
 <ul>
 <li>$(macro) is more make-specific, and seems more common</li>
