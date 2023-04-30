@@ -1,0 +1,8 @@
+<h2>Readahead</h2>
+
+Before protocol v7.6
+(<a href="https://git.kernel.org/linus/9cd6845">9cd6845</a>), readahead was
+not implemented. Since v7.6
+(<a href="https://git.kernel.org/linus/c1aa96a">c1aa96a</a>),
+the FUSE_INIT request includes <i>flags</i> with FUSE_ASYNC_READ set, and
+readahead is enabled by setting the same flag in the response.
