@@ -107,6 +107,19 @@ is supposed to have better precision where
 possible, and <i>datetime</i> objects have better range
 and always count 60 s per minute.</p>
 
+<h2>Time parsing</h2>
+
+<p>For <i>time.strptime</i>, it is implied that non-directive punctuation in
+the format string matches corresponding literal punctuation in the parsed
+value. It is implied that the format ' %d' can handle a doubled space instead
+of a leading zero.</p>
+
+<p>For <i>datetime</i> module <i>strptime</i> methods, many numeric
+directives allow a leading zero to be omitted. It is implied that multiple
+leading zeros could be omitted, as long as some digits remain. However,
+multiple numeric fields should not be bunched up without punctuation unless
+all leading zeros are included.</p>
+
 <h2>HTTP cookies</h2>
 
 <p><b>http.cookies</b> is for HTTP servers, and can parse the Cookie
