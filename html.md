@@ -17,10 +17,13 @@ title: HTML
 
 <pre>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
-    "http://www.w3.org/TR/html4/strict.dtd">
+    "http://www.w3.org/TR/html4/strict.dtd"><!-- Encoding: UTF-8 -->
 </pre>
 
 In HTML 5, this is an "obsolete permitted" doctype. In XML, DOCTYPE is a keyword, and must be uppercase. The _html_ refers to the <html> root element. HTML 4 has it in uppercase, but in XHTML, element names must be lowercase.
+
+Don't put comments before the doctype; that can prevent recognition of the
+doctype.
 
 ## Attribute values ##
 
