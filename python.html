@@ -87,10 +87,13 @@ Unclear if other escape sequences are valid inside square bracket character sets
 <section id=configparser>
 <h2><a href="#configparser">configparser</a></h2>
 
-<p>With <b>ConfigParser.get</b>, there is a keyword-only <i>fallback</i>
-parameter. The config option is assumed to exist if no fallback is given.
+<p>The <b>ConfigParser.get</b> method has
+a keyword-only <i>fallback</i> parameter, and
+the config option is presumed to exist if no fallback is given.
 However the “mapping protocol access” <b>ConfigParser[<i>section</i>].get</b>
-method is compatible with <i>dict.get</i>.</p>
+method is compatible with <i>dict.get</i>. You cannot use any
+<b>setdefault</b> methods; the mapping protocol access is supposed have them,
+but their signatures and behaviour are not defined.</p>
     <p>Section objects (ConfigParser[<i>section</i>]) include getter
 converters corresponding to ConfigParser by default: <b>getint</b>,
 <b>getfloat</b> and <b>getboolean</b>. Their signatures are compatible with
