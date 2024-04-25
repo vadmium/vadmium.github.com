@@ -30,7 +30,8 @@ header field format. It returns a tuple of two items; the first is the raw
 <i>attribute=value</i> pairs. Attribute names are converted to lowercase,
 and their values are de-quoted.</p>
 
-<h2>Regular expressions</h2>
+<section id=re>
+<h2><a href="#re">Regular expressions</a></h2>
 
 <ul>
 <li>valid: [-. . .] [. . .-] [. . .\-. . .] (include hyphen in set rather than specify a range)
@@ -81,8 +82,10 @@ character set. It may be safer to put it as an alternative to the
 character set: (?:[. . .] | \\).</p>
 
 Unclear if other escape sequences are valid inside square bracket character sets. Better to encode them directly (without raw strings)
+</section>
 
-<h2>configparser</h2>
+<section id=configparser>
+<h2><a href="#configparser">configparser</a></h2>
 
 <p>With <b>ConfigParser.get</b>, there is a keyword-only <i>fallback</i>
 parameter. The config option is assumed to exist if no fallback is given.
@@ -94,8 +97,10 @@ converters corresponding to ConfigParser by default: <b>getint</b>,
 (<i>key</i>, *, / [, <i>fallback</i>]). (<a
 href="https://docs.python.org/3/library/configparser.html#fallback-values"
 >Fallback Values</a>)</p>
+</section>
 
-<h2>Time</h2>
+<section id=time>
+<h2><a href="#time">Time</a></h2>
 
 <p>The <i>time.<b>time</b></i> function is only guaranteed 1 s precision.
 Outside of Windows,
@@ -106,8 +111,10 @@ hand, <i>datetime.<b>datetime.now</b></i>
 is supposed to have better precision where
 possible, and <i>datetime</i> objects have better range
 and always count 60 s per minute.</p>
+</section>
 
-<h2>Time parsing</h2>
+<section id=time-parsing>
+<h2><a href="#time-parsing">Time parsing</a></h2>
 
 <p>For <i>time.strptime</i>, it is implied that non-directive punctuation in
 the format string matches corresponding literal punctuation in the parsed
@@ -119,8 +126,10 @@ directives allow a leading zero to be omitted. It is implied that multiple
 leading zeros could be omitted, as long as some digits remain. However,
 multiple numeric fields should not be bunched up without punctuation unless
 all leading zeros are included.</p>
+</section>
 
-<h2>HTTP cookies</h2>
+<section id=cookies>
+<h2><a href="#cookies">HTTP cookies</a></h2>
 
 <p><b>http.cookies</b> is for HTTP servers, and can parse the Cookie
 header field.</p>
@@ -129,6 +138,7 @@ cookies for various scopes (domains, paths, etc). <b>Cookie</b> holds
 a single cookie record, including its name, value, and attributes. Cookie
 has no documented constructor; instead it is recommended to convert a HTTP
 response to a sequence of Cookie instances using a CookieJar method.</p>
+</section>
 
 </body>
 </html>
