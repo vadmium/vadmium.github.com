@@ -80,6 +80,16 @@ the 2013 edition (TC1), it required all function pointers be convertible to
 <i>void</i> pointers (changed in bug <a
 href="http://austingroupbugs.net/view.php?id=74">74</a>).</p>
 
+<h2>Bitwise operations</h2>
+
+<p>Bitwise operations involving negative values depend on
+the signed integer representation, and can produce trap values. This includes
+negative operands, the bitwise complement of all signed values, and
+the bitwise complement of shorter unsigned values that are promoted to
+<i>signed int</i>. In general, it is better to use non-negative operands, and
+only bitwise-complement unsigned operands of at least
+<i>unsigned int</i> conversion rank.</p>
+
 <h2><i>printf</i></h2>
 
 <p>A string conversion "%s" takes a pointer to a string of <i>char</i>.
