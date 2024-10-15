@@ -10,13 +10,17 @@
 <body>
 <h1>C programming</h1>
 
-<h2>Trailing commas</h2>
+<section id=trailing-commas>
+<h2><a href="#trailing-commas">Trailing commas</a></h2>
 
 <p>Initializer lists can have trailing commas even in C89.</p>
 
 <p>Trailing commas are allowed in <i>enum</i> bodies since C99.</p>
+</section>
 
-<h2>Negative integer division and remainder (modulo)</h2>
+<section id=negative-division>
+<h2><a href="#negative-division">Negative integer division and
+remainder (modulo)</a></h2>
 
 <p>In C99, signed integer division truncates towards zero.
 If the result was negative and rounded up, the remainder is negative.
@@ -25,8 +29,10 @@ If the result was negative and rounded up, the remainder is negative.
 up or down (even when both operands are negative).
 The remainder can be positive or negative. (<a
 href="https://port70.net/~nsz/c/c89/c89-draft.html#3.3.5">C89 3.3.5</a>)</p>
+</section>
 
-<h2>Data types</h2>
+<section id=data-types>
+<h2><a href="#data-types">Data types</a></h2>
 
 <p>Unsigned integers consist of value bits and padding bits.
 Incorrect values for padding bits may produce a trap representation.
@@ -79,8 +85,10 @@ function pointer. Posix requires that function pointers returned from
 the 2013 edition (TC1), it required all function pointers be convertible to
 <i>void</i> pointers (changed in bug <a
 href="http://austingroupbugs.net/view.php?id=74">74</a>).</p>
+</section>
 
-<h2>Bitwise operations</h2>
+<section id=bitwise>
+<h2><a href="#bitwise-operations">Bitwise operations</a></h2>
 
 <p>Bitwise operations involving negative values depend on
 the signed integer representation, and can produce trap values. This includes
@@ -89,8 +97,10 @@ the bitwise complement of shorter unsigned values that are promoted to
 <i>signed int</i>. In general, it is better to use non-negative operands, and
 only bitwise-complement unsigned operands of at least
 <i>unsigned int</i> conversion rank.</p>
+</section>
 
-<h2><i>printf</i></h2>
+<section id=printf>
+<h2><a href="#printf"><i>printf</i></a></h2>
 
 <p>A string conversion "%s" takes a pointer to a string of <i>char</i>.
 If no precision is specified, the string must include a null byte.
@@ -98,8 +108,10 @@ If a precision is specified (e.g. "%.*s"), the C standard suggests
 the string may not need to be null terminated
 (<a href="https://port70.net/~nsz/c/c99/n1256.html#7.19.6.1p8">C99 7.19.6.1
 ¶8</a>).</p>
+</section>
 
-<h2>Identifiers<h2>
+<section id=identifiers>
+<h2><a href="#identifiers">Identifiers</a><h2>
 
 <h3>&lt;fcntl.h&gt; (Posix)</h3>
 
@@ -117,6 +129,7 @@ SEEK_*, NULL,
 (<i>s</i>)<i>size_t</i>, <i>uid_t</i>, <i>gid_t</i>, <i>off_t</i>,
 <i>pid_t</i>, <i>intptr_t</i>,
 <i>close<i>, . . .
+</section>
 
 </body>
 </html>
