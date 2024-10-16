@@ -18,6 +18,19 @@
 <p>Trailing commas are allowed in <i>enum</i> bodies since C99.</p>
 </section>
 
+<h2>storage-class specifiers</h2> should be at the beginning (how far at the beginning though?)
+* typedef
+extern
+static
+auto
+register
+static x
+int x
+
+static/typedef/etc const/volatile/etc unsigned/int/float/etc x
+specifiers = static, unsigned, int
+qualifiers = const, volatile
+
 <section id=negative-division>
 <h2><a href="#negative-division">Negative integer division and
 remainder (modulo)</a></h2>
