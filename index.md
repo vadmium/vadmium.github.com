@@ -13,5 +13,6 @@ layout: default
 * [Python](python.html)
 * [Rar](rar)
 * [High Sierra Format](hsf)
+* [Fuse filesystem protocol](fuse.html)
 * [VCS notes](vcs)
 * [Python web browsers](browsers)

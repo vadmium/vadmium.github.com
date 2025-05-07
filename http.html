@@ -93,5 +93,14 @@ month name, year name, and time components. The order doesn’t matter,
 except that the day of the month has to come before the year. The
 weekday name and time zone are ignored, and years 99 and less are treated as
 1970–2069.</p>
+
+<h2>Cross-origin access</h2>
+Browsers restrict some kinds of accesses based on an “origin”. The
+scheme, host, and sometimes the port, in a URL determine the origin.
+
+<ul>
+  <li>embedding allowed
+  <li>automatic POST requests of forms allowed (via scripted submit calls and XMLHTTPRequest)
+</ul>
 </body>
 </html>

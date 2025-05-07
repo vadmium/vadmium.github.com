@@ -1,5 +1,5 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
-    "http://www.w3.org/TR/html4/strict.dtd">
+    "http://www.w3.org/TR/html4/strict.dtd"><!-- Encoding: UTF-8 -->
 <html>
 <head>
     <meta http-equiv=Content-Type content="text/html; charset=UTF-8">
@@ -34,48 +34,116 @@ header field format. It returns a tuple of two items; the first is the raw
 <i>attribute=value</i> pairs. Attribute names are converted to lowercase,
 and their values are de-quoted.</p>
 
-<h2>Regular expressions</h2>
+<section id=re>
+<h2><a href="#re">Regular expressions</a></h2>
+
+<ul>
+<li>valid: [-. . .] [. . .-] [. . .\-. . .] (include hyphen in set rather than specify a range)
+<li>A plain hyphen as the start or end of a range would be ambiguous, and would conflict with a reserved possible future use of a double literal hyphen sequence.
+<li>ranges: [. . .-\-. . .] [. . .\--. . .]
+<li>lone character ]  []. . .]  or  [. . .\]. . .]
+<li>range from ]  []-. . .]  or  [. . .\]-. . .]
+<li>range to ]  [. . .-\]. . .]
+<li>opening [ at start conflicts with reserved possible future notation  [. . .[. . .] [\[. . .]
+<li>circumflex must not be first character: [. . .^. . .]
+</ul>
+
+<ul>
+<li>- start or end
+<li>] start
+<li>[ not at start
+<li>^ not at start
+<li>[-]  []]  [\[]  ^
+<li>[]-]  [-[]  [-^]
+<li>[][]  []^]  [\[^]
+<li>[][-]  []^-]  [-^[]  [][^]
+<li>[]. . .^. . .[. . .-]
+</ul>
+
+Rules:
+<ul>
+<li>1. Put literal closing square bracket (]) at start, or escape with a backslash prefix in complemented sets
+<li>2. Put literal hyphen (-) at start, or at end if start position unavailable
+<li>3. Put literal caret (^) after start (or don't use square brackets if on its own)
+<li>4. Put literal opening square bracket ([) after start after any complementing caret (^), or escaped with a backslash prefix if only the start position is available
+<li>Literal hyphens (-) can and both opening and closing square brackets ("[" and "]") can all be escaped with a backslash prefix
+</ul>
 
 <p>In a character set “[. . .]”, put the closing square bracket “]” at the
-start to count as a regular character or the start of a character range.
+start to count as a regular character or the start[?] of a character range.
 (Escaping it with a backslash, “\]”, also specifies a regular character.)
 Put the ASCII hyphen “-” at the end to count as a single character (or
 escape it with a backslash, or put it at the start). You cannot have a range
 ending in a closing square bracket. The ASCII caret “^” has to be after
 the first character to lose its special meaning. The opening
 square bracket “[” cannot be the first character in the set.</p>
-    <p>Character classes (\d, \D, \s, \S, \w, and \W) are accepted
-within a character set. The escape sequence \b specifies the backspace
+    <p>The six special sequence character classes (\d, \D, \s, \S, \w, and \W) are accepted
+within a character set / character class that uses square brackets
+(<a href="https://docs.python.org/3/howto/regex.html#matching-characters"
+>How-to</a>). The escape sequence \b specifies the backspace
 control character. It is not clear how to specify a backslash in a
 character set. It may be safer to put it as an alternative to the
 character set: (?:[. . .] | \\).</p>
 
-<h2>configparser</h2>
+Unclear if other escape sequences are valid inside square bracket character sets. Better to encode them directly (without raw strings)
+</section>
 
-<p>With <b>ConfigParser.get</b>, there is a keyword-only <i>fallback</i>
-parameter. The config option is assumed to exist if no fallback is given.
+<section id=configparser>
+<h2><a href="#configparser">configparser</a></h2>
+
+<p>The <b>ConfigParser.get</b> method has
+a keyword-only <i>fallback</i> parameter, and
+the config option is presumed to exist if no fallback is given.
 However the “mapping protocol access” <b>ConfigParser[<i>section</i>].get</b>
-method is compatible with <i>dict.get</i>.</p>
+method is compatible with <i>dict.get</i>. You cannot use any
+<b>setdefault</b> methods; the mapping protocol access is supposed have them,
+but their signatures and behaviour are not defined.</p>
     <p>Section objects (ConfigParser[<i>section</i>]) include getter
 converters corresponding to ConfigParser by default: <b>getint</b>,
 <b>getfloat</b> and <b>getboolean</b>. Their signatures are compatible with
 (<i>key</i>, *, / [, <i>fallback</i>]). (<a
 href="https://docs.python.org/3/library/configparser.html#fallback-values"
 >Fallback Values</a>)</p>
+</section>
 
-<h2>enum</h2>
+<section id=enum>
+<h2><a href="#enum">enum</a></h2>
 
 <p>Members: __str__ is a “human-readable” representation;
 __repr__ includes that and more information.</p>
+</section>
 
-<h2>Time</h2>
+<section id=time>
+<h2><a href="#time">Time</a></h2>
 
-<p>The <b>time.time</b> function is only guaranteed 1 s precision, and on
-Unix the epoch and whether leap seconds are considered can vary. On the other
-hand, <b>datetime.datetime.now</b> is supposed to have better precision where
-possible.</p>
+<p>The <i>time.<b>time</b></i> function is only guaranteed 1 s precision.
+Outside of Windows,
+whether leap seconds are considered can vary, and
+the zero reference point (“epoch”) can also vary before Python 3.11.
+The range can be limited to 1970–2038. On the other
+hand, <i>datetime.<b>datetime.now</b></i>
+is supposed to have better precision where
+possible, and <i>datetime</i> objects have better range
+and always count 60 s per minute.</p>
+</section>
 
-<h2>HTTP cookies</h2>
+<section id=time-parsing>
+<h2><a href="#time-parsing">Time parsing</a></h2>
+
+<p>For <i>time.strptime</i>, it is implied that non-directive punctuation in
+the format string matches corresponding literal punctuation in the parsed
+value. It is implied that the format ' %d' can handle a doubled space instead
+of a leading zero.</p>
+
+<p>For <i>datetime</i> module <i>strptime</i> methods, many numeric
+directives allow a leading zero to be omitted. It is implied that multiple
+leading zeros could be omitted, as long as some digits remain. However,
+multiple numeric fields should not be bunched up without punctuation unless
+all leading zeros are included.</p>
+</section>
+
+<section id=cookies>
+<h2><a href="#cookies">HTTP cookies</a></h2>
 
 <p><b>http.cookies</b> is for HTTP servers, and can parse the Cookie
 header field.</p>
@@ -84,6 +152,7 @@ cookies for various scopes (domains, paths, etc). <b>Cookie</b> holds
 a single cookie record, including its name, value, and attributes. Cookie
 has no documented constructor; instead it is recommended to convert a HTTP
 response to a sequence of Cookie instances using a CookieJar method.</p>
+</section>
 
 </body>
 </html>
