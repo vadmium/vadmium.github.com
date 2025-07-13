@@ -92,6 +92,18 @@ function pointer. Posix requires that function pointers returned from
 the 2013 edition (TC1), it required all function pointers be convertible to
 <i>void</i> pointers (changed in bug <a
 href="http://austingroupbugs.net/view.php?id=74">74</a>).</p>
+
+<section id=array-param><h4><a href="#array-param">Array parameters</a></h4>
+
+<p>Interpreted as pointers.
+The different meaning of array syntax between
+function parameters and other declarations is surprising.
+Dimension [<i>static</i> 1] implies the pointer cannot be null.
+Only allowed for complete element types
+(not <i>void</i>, nor FILE since C11
+[<a href="https://port70.net/~nsz/c/c11/n1570.html#6.2.5p1">6.2.5 ¶1</a>,
+<i>object type</i>]).</p>
+</section>
 </section>
 
 <section id=interchange>
