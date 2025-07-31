@@ -104,6 +104,15 @@ Only allowed for complete element types
 [<a href="https://port70.net/~nsz/c/c11/n1570.html#6.2.5p1">6.2.5 ¶1</a>,
 <i>object type</i>]).</p>
 </section>
+
+<section id=restrict>
+<h4><a href="#restrict"><i>Restrict</i> pointers</a></h4>
+
+<p>Avoid when implementation independence is desired.
+The rules defined by C99 may not be intended, and do not match
+the behaviour of implementations. (<a
+href="https://stackoverflow.com/questions/77761618/formal-definition-of-restrict-fails-to-account-for-valid-cases">https://stackoverflow.com/questions/77761618/formal-definition-of-restrict-fails-to-account-for-valid-cases</a>)</p>
+</section>
 </section>
 
 <section id=interchange>
