@@ -54,17 +54,24 @@ href="https://port70.net/~nsz/c/c89/c89-draft.html#3.3.5">C89 3.3.5</a>)</p>
 Incorrect values for padding bits may produce a trap representation.
 When all value and padding bits are zero, this has to represent
 the integer zero (not a trap representation).</p>
-    <p>Each signed integer type has an unsigned counterpart.
-One bit in this unsigned type (either a value bit, or a padding bit)
+    <p>Every signed integer type has an unsigned counterpart, although
+other unsigned types such as _Bool do not have to have a signed counterpart.
+One bit in each unsigned type (either a value bit, or a padding bit)
 corresponds to the sign bit. Every valid signed representation where
 the sign bit is zero represents the same value in the unsigned type
 (<a href="https://port70.net/~nsz/c/c99/n1256.html#6.2.6.2p5">C99
-6.2.6.2 ¶5</a>). A signed integer may use sign-and-magnitude,
-one’s complement, or two’s complement representation.
-The representation for negative zero, or the most negative value
-in two’s complement, may be defined as a trap representation.</p>
+6.2.6.2 ¶5</a>). A signed integer may use two’s complement representation,
+or before C23, sign-and-magnitude or one’s complement representation.
+Before C23, the representation for negative zero, or the most negative value
+in two’s complement, may be defined as a trap representation.
+Before C23, the sign bit may be in addition to the value bits of the
+unsigned counterpart, or the signed width may equal or be less than
+the unsigned width. In C23, the widths must be equal, and the
+most negative value is not a trap representation.</p>
     <p>The <i>unsigned char</i> type cannot have padding bits,
 and an array of them can represent the bytes of any object.
+C11 <i>signed char</i> has the same width, therefore does not have
+any padding bits, but before C23 it may have a trap representation.
 Plain <i>char</i> is a distinct type, but otherwise has the same
 behaviour as either <i>signed</i> or <i>unsigned char</i>.</p>
     <p>The <i>uint</i>N<i>_t</i> types do not have padding bits;
