@@ -44,6 +44,9 @@ href="https://port70.net/~nsz/c/c89/c89-draft.html#3.3.5">C89 3.3.5</a>)</p>
 <section id=data-types>
 <h2><a href="#data-types">Data types</a></h2>
 
+<section id=ints>
+<h3><a href="#ints">Integers</a></h3>
+
 <p>Unsigned integers consist of value bits and padding bits.
 Incorrect values for padding bits may produce a trap representation.
 When all value and padding bits are zero, this has to represent
@@ -77,7 +80,24 @@ and cannot have padding bits nor a trap representation
     <p>Posix requires 8-bit <i>char</i>, so
 (<i>u</i>)<i>int8_t</i>, and all (signed and unsigned) <i>char</i>
 expressions are converted to <i>int</i> rather than <i>unsigned</i>.
-    <p>The types in each of the following groups have the same size and
+</section>
+
+<section id="pointers"><h3><a href="#pointers">Pointers</a></h3>
+
+<p>Pointers to different types are not necessarily compatible, except that
+a <i>void</i> pointer can hold a pointer to any type.</p>
+    <p>C doesn’t require that a <i>void</i> pointer be able to store a
+function pointer. Posix requires that function pointers returned from
+<i>dlsym</i> can be stored in its <i>void</i> pointer return type. Before
+the 2013 edition (TC1), it required all function pointers be convertible to
+<i>void</i> pointers (changed in bug <a
+href="http://austingroupbugs.net/view.php?id=74">74</a>).</p>
+</section>
+
+<section id=interchange>
+<h3><a href="#interchange">Interchange</a></h3>
+
+<p>The types in each of the following groups have the same size and
 alignment, and the same representation for values that they support, and
 may be interchanged in function arguments, return values, and unions.</p>
 
@@ -91,29 +111,8 @@ may be interchanged in function arguments, return values, and unions.</p>
     <li>All pointers to structures</li>
     <li>All pointers to unions</li>
 </ul>
+</section>
 
-
-Ranks:
-_Bool-sized and lesser extended types
-_Bool
-char-sized and lesser extended types
-char, signed char, unsigned char
-short, unsigned short
-int, unsigned
-long, unsigned long
-long long, unsigned long long
-extended types sized greater than long long
-
-<h3>Pointers</h3>
-
-<p>Pointers to different types are not necessarily compatible, except that
-a <i>void</i> pointer can hold a pointer to any type.</p>
-    <p>C doesn’t require that a <i>void</i> pointer be able to store a
-function pointer. Posix requires that function pointers returned from
-<i>dlsym</i> can be stored in its <i>void</i> pointer return type. Before
-the 2013 edition (TC1), it required all function pointers be convertible to
-<i>void</i> pointers (changed in bug <a
-href="http://austingroupbugs.net/view.php?id=74">74</a>).</p>
 </section>
 
 <section id=bitwise>
