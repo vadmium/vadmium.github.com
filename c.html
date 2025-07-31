@@ -77,6 +77,13 @@ The <i>int</i>N<i>_t</i> types use two’s complement representation,
 and cannot have padding bits nor a trap representation
 (<a href="https://port70.net/~nsz/c/c99/n1256.html#7.18.2.1">C99
 7.18.2.1</a>).</p>
+    <p>Unsigned specified-width integers, even <i>uint_fast64_t</i>,
+may suffer promotion to <i>signed int</i>, with associated overflow.
+On the other hand, specifying a width signals the
+appropriate storage and machine instructions to be used.
+Also, (<i>u</i>)<i>int_fast</i>/<i>least8_t</i> have the advantage over
+(<i>signed</i>/<i>unsigned</i>) <i>char</i> of not being able to alias
+other types.</p>
     <p>Posix requires 8-bit <i>char</i>, so
 (<i>u</i>)<i>int8_t</i>, and all (signed and unsigned) <i>char</i>
 expressions are converted to <i>int</i> rather than <i>unsigned</i>.
