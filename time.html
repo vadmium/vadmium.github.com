@@ -1,0 +1,68 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01//EN"
+    "http://www.w3.org/TR/html4/strict.dtd">
+<html>
+<head>
+    <title>Timekeeping</title>
+    <meta name="viewport" content="width=device-width">
+    <meta name=color-scheme content="light dark">
+</head>
+
+<body>
+<h1>Timekeeping</h1>
+
+<section id=TZ>
+<h2><a href="#TZ">TZ Environment Variable</a></h2>
+
+Always valid:
+
+<dl>
+    <dt>&lt;STD&gt;0:00</dt>
+        <dd>No DST: permanent STD time</dd>
+    <dt>&lt;STD&gt;0:00&lt;DST&gt;-1:00,J1/0:00,J1/1:00</dt>
+        <dd>Every DST interval ends as it starts: permanent STD time</dd>
+    <dt>&lt;STD&gt;0:00&lt;DST&gt;-1:00,J1/-1,J365/+24</dt>
+        <dd>Every DST interval ends at the start of the next:
+        permanent DST</dd>
+    <dt>&lt;STD&gt;0:00&lt;DST&gt;,M4.1.0,M10.1.0</dt>
+        <dd>The end time follows the start time of every rule instance:
+        STD time in effect outside these intervals</dd>
+    <dt>&lt;STD&gt;0:00&lt;DST&gt;,M10.1.0,M4.1.0</dt>
+        <dd>The end time precedes the start time of every rule instance:
+        DST in effect outside these intervals</dd>
+    <dt>&lt;STD&gt;0:00&lt;DST&gt;-1:00,M4.1.0,M10.1.0</dt>
+        <dd>DST is ahead of STD time: normal DST and STD roles</dd>
+    <dt>&lt;STD&gt;0:00&lt;DST&gt;+1:00,M4.1.0,M10.1.0</dt>
+        <dd>DST is behind STD time: reversed DST and STD roles</dd>
+    <dt>&lt;STD&gt;0:00&lt;DST&gt;,J1/-48,J1/-24</dt>
+        <dd>Endpoint before start of year</dd>
+    <dt>&lt;STD&gt;0:00&lt;DST&gt;,J365/+48,J365/+72</dt>
+        <dd>Endpoint after end of year</dd>
+    <dt>&lt;STD&gt;0:00&lt;DST&gt;,M4.1.0,M10.1.0</dt>
+        <dd>Endpoints by weekday of month</dd>
+    <dt>&lt;STD&gt;0:00&lt;DST&gt;,M3.5.0,M10.5.0</dt>
+        <dd>Endpoints by last weekday of month</dd>
+    <dt>&lt;STD&gt;0:00&lt;DST&gt;,J80,J264</dt>
+        <dd>Endpoints by day of year, not counting 29 Feb</dd>
+    <dt>&lt;STD&gt;0:00&lt;DST&gt;,79,263</dt>
+        <dd>Endpoints by days from start of year, including 29 Feb</dd>
+    permanent dst/std depending on leap year or weekday shift
+</dl>
+
+Only valid for a limited time:
+
+<dl>
+    <dt>&lt;STD&gt;0:00&lt;DST&gt;,J1/-24,J365/+48</dt>
+        <dd>Every DST interval overlaps the previous</dd>
+    <dt>&lt;STD&gt;0:00&lt;DST&gt;-1:00,0/-1,365/+12</dt>
+        <dd>Every DST interval starting in a non-leap year overlaps the
+        next</dd>
+    <dt>&lt;STD&gt;0:00&lt;DST&gt;-1:00,M1.1.1/-1,M12.5.0/+48</dt>
+        <dd>Every DST interval starting on 1 Jan overlaps the previous</dd>
+    <dt>&lt;STD&gt;0:00&lt;DST&gt;,M1.1.0,M1.1.1</dt>
+        <dd>Order of endpoints differs when 1 Jan is a Monday</dd>
+</dl>
+
+</section>
+
+</body>
+</html>

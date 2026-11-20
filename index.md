@@ -10,6 +10,7 @@ layout: default
 * [Java Script](javascript.html)
 * [Unix shell](shell)
 * [Makefiles](make.html)
+* [Timekeeping](time.html)
 * [Python](python.html)
 * [Rar](rar)
 * [High Sierra Format](hsf)
