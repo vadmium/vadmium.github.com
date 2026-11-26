@@ -46,9 +46,26 @@ whereas <b>parseInt</b> stops parsing and returns a value in that case.</p>
 <div>Function.prototype.bind since ES 5</div>
 
 <section id=regexp>
-<h2>Regular expressions</h2>
+<h2><a href="#regexp">Regular expressions</a></h2>
 
-<p>(?: . . .) in ES 3</p>
+<ul>
+    <li><b>Disjunction</b> <i>alternative</i> | <i>alternative</i> In
+        ES 3</li>
+    <li><b>Assertions</b> ^ $ \b \B (?=<i>pattern</i>) (?!<i>pattern</i>) In
+        ES 3</li>
+    <li><b>Quantifier suffixes</b> * + ? {<i>i</i>[,[<i>j</i>]]} Further
+        non-greedy suffix “?”; in ES 3</li>
+    <li><b>Wildcard</b> . Excludes line terminators; in ES 3</li>
+    <li><b>Escapes</b> \<i>decimal</i> \f \n \r \t \v \c<i>letter</i>
+        \x<i>hex</i> \u<i>hex</i> \<i>punctuation</i> \d \D \s \S \w \W Also
+        \b inside character classes; in ES 3</li>
+    <li><b>Character classes</b> [<i>set</i>] [^<i>set</i>]
+        <i>i</i>-<i>j</i> Literal “[” allowed;
+        literal “^” and “-” in some positions; in ES 3</li>
+    <li><b>Capturing group</b> (<i>pattern</i>) In ES 3</li>
+    <li><b>Non-capturing group</b> (?:<i>pattern</i>) In ES 3</li>
+    <li><b>Flags</b> g i m In ES 3</li>
+</ul>
 </section>
 
 </body>
